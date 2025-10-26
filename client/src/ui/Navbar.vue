@@ -9,7 +9,9 @@ import { RouterLink } from 'vue-router';
             <div class="text-2xl font-bold">CostmoPort</div>
             <div class="flex items-center gap-2">
                 <RouterLink to="/">Home</RouterLink>
-                <RouterLink to="/dashnoard">Dashboard</RouterLink>
+                <RouterLink to="/flights">Flights</RouterLink>
+                <!-- save for later when dashboard is implemented and user auth is implemented -->
+                <!-- <RouterLink to="/dashnoard">Dashboard</RouterLink> -->
                 <RouterLink to="/about">About</RouterLink>
                 <ThemeToggler />
             </div>
