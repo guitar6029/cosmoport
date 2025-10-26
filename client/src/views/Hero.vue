@@ -15,7 +15,7 @@ import stationimg from '../assets/img/station_1.jpg'
         </div>
         <div class="hero-content text-center">
             <div class="max-w-md">
-                <img :src="stationimg" class="rounded-lg shadow-2xl" />
+                <img :src="stationimg" alt="space station" class="rounded-lg shadow-2xl" />
             </div>
         </div>
     </main>

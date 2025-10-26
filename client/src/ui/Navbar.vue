@@ -10,6 +10,7 @@ import { RouterLink } from 'vue-router';
             <div class="flex items-center gap-2">
                 <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="/flights">Flights</RouterLink>
+                <RouterLink to="/login">Login</RouterLink>
                 <!-- save for later when dashboard is implemented and user auth is implemented -->
                 <!-- <RouterLink to="/dashnoard">Dashboard</RouterLink> -->
                 <RouterLink to="/about">About</RouterLink>
