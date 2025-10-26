@@ -1,6 +1,7 @@
-import { createRouter, createMemoryHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import Hero from "../views/Hero.vue";
 import Dashboard from "../views/Dashboard.vue";
+import About from "../views/AboutView.vue";
 
 const routes = [
   {
@@ -13,9 +14,21 @@ const routes = [
     name: "Dashboard",
     component: Dashboard,
   },
+  {
+    path: "/about",
+    name: "About",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      About
+
+  }
 ];
 
 export const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 });
+
+export default router;
