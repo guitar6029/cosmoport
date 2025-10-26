@@ -1,0 +1,124 @@
+{
+  "galaxies": [
+    { "id": 1, "name": "Andromeda Verge", "description": "Dense starfields" },
+    {
+      "id": 2,
+      "name": "Orion Cluster",
+      "description": "Gas and nebula-rich zone"
+    }
+  ],
+
+  "planets": [
+    {
+      "id": 1,
+      "name": "Epsilon Prime",
+      "galaxyId": 1,
+      "climate": "Arid",
+      "population": 4200000,
+      "isHub": true
+    },
+    {
+      "id": 2,
+      "name": "Neridia",
+      "galaxyId": 1,
+      "climate": "Oceanic",
+      "population": 980000
+    },
+    {
+      "id": 3,
+      "name": "Valora",
+      "galaxyId": 2,
+      "climate": "Temperate",
+      "population": 2500000
+    }
+  ],
+
+  "airlines": [
+    {
+      "id": 1,
+      "name": "NovaWings Interstellar",
+      "slogan": "Beyond Light",
+      "basePlanetId": 1
+    },
+    {
+      "id": 2,
+      "name": "Quasar Express",
+      "slogan": "Blink and You're There",
+      "basePlanetId": 3
+    },
+    {
+      "id": 3,
+      "name": "StellarPath",
+      "slogan": "Connecting the Cosmos",
+      "basePlanetId": 2
+    },
+    {
+      "id": 4,
+      "name": "Lunar Lines",
+      "slogan": "Your Gateway to the Moons",
+      "basePlanetId": 1
+    },
+    {
+      "id": 5,
+      "name": "Nebula Transit",
+      "slogan": "Where Speed Meets the Stars",
+      "basePlanetId": 3
+    },
+    {
+      "id": 6,
+      "name": "OrbitX",
+      "slogan": "Redefining Galactic Travel",
+      "basePlanetId": 2
+    },
+    {
+      "id": 7,
+      "name": "CosmoFly",
+      "slogan": "Every Planet Within Reach",
+      "basePlanetId": 1
+    },
+    {
+      "id": 8,
+      "name": "VoidRunners",
+      "slogan": "Into the Depths of the Unknown",
+      "basePlanetId": 3
+    },
+    {
+      "id": 9,
+      "name": "HyperJet",
+      "slogan": "Warp Ahead, Arrive First",
+      "basePlanetId": 2
+    },
+    {
+      "id": 10,
+      "name": "Eclipse Airways",
+      "slogan": "Where Shadows Meet Light",
+      "basePlanetId": 1
+    }
+  ],
+
+  "flights": [
+    {
+      "id": 1,
+      "airlineId": 1,
+      "originPlanetId": 2,
+      "destinationPlanetId": 1,
+      "departsAt": "2026-01-03T09:00:00Z",
+      "arrivesAt": "2026-01-03T13:15:00Z",
+      "price": 199
+    },
+    {
+      "id": 2,
+      "airlineId": 2,
+      "originPlanetId": 1,
+      "destinationPlanetId": 3,
+      "departsAt": "2026-01-04T08:30:00Z",
+      "arrivesAt": "2026-01-04T15:00:00Z",
+      "price": 299
+    }
+  ],
+
+  "users": [{ "id": 1, "username": "guest", "tier": null }],
+
+  "passes": [],
+  "bookings": []
+}
