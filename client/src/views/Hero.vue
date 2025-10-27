@@ -3,7 +3,7 @@ import stationimg from '../assets/img/station_1.jpg'
 </script>
 
 <template>
-    <main class="hero bg-base-200 min-h-screen flex flex-row items-center justify-center gap-2">
+    <section class="hero bg-base-200 flex flex-row items-center justify-center gap-2">
         <div class="hero-content text-center">
             <div class="max-w-md">
                 <h1 class="text-5xl font-bold">CostmoPort</h1>
@@ -18,5 +18,5 @@ import stationimg from '../assets/img/station_1.jpg'
                 <img :src="stationimg" alt="space station" class="rounded-lg shadow-2xl" />
             </div>
         </div>
-    </main>
+    </section>
 </template>

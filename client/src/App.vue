@@ -4,8 +4,12 @@ import Navbar from './ui/Navbar.vue';
 </script>
 
 <template>
-  <main class="flex flex-col gap-2 min-h-screen max-h-screen overflow-hidden">
-    <Navbar />
-    <RouterView />
-  </main>
+  <div class="min-h-dvh flex flex-col">
+    <header>
+      <Navbar />
+    </header>
+    <main class="flex-1 p-2 max-h-screen overflow-hidden">
+      <RouterView />
+    </main>
+  </div>
 </template>

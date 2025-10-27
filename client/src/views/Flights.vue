@@ -18,10 +18,10 @@
 
 
 <template>
-    <main class="min-h-screen">
+    <section >
         <h1>Flights</h1>
         <div class="border rounded-xl">
             
         </div>
-    </main>
+    </section>
 </template>
