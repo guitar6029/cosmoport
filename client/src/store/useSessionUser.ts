@@ -7,10 +7,13 @@ import type { Profile } from "../types/Profile";
 
 export const useSessionUser = defineStore("sessionUser", () => {
   // ===== State =====
-  const loading = ref(true); // controls global loading state (session/profile fetch)
+  const loading = ref(true);
   const user = ref<SessionUser | null>(null);
   const profile = ref<Profile | null>(null);
   let unsub: (() => void) | null = null;
+
+  // internal ready promise (set once)
+  let _ready: Promise<void> | null = null;
 
   // ===== Getters =====
   const isAuthed = computed(() => !!user.value);
@@ -18,62 +21,60 @@ export const useSessionUser = defineStore("sessionUser", () => {
   const avatarUrl = computed(() => profile.value?.avatar_url ?? null);
   const displayName = computed(() => profile.value?.display_name ?? null);
 
-  // Optional “ready” computed you can use in components
-  const ready = computed(() => {
-    if (loading.value) return false;
-    return isAuthed.value ? !!profile.value : true;
-  });
+  // Optional boolean for components; guards should await readyPromise instead
+  const ready = computed(() =>
+    loading.value ? false : isAuthed.value ? !!profile.value : true
+  );
 
   // ===== Actions =====
 
-  // Initialize the user session and profile
-  async function init() {
-    console.log("[Auth] Initializing session...");
-    const { data } = await supabase.auth.getSession();
+  // Initialize once; safe to call multiple times.
+  function init() {
+    if (_ready) return _ready; // idempotent
 
-    // --- Restore existing session ---
-    if (data.session?.user) {
-      user.value = {
-        id: data.session.user.id,
-        email: data.session.user.email ?? null,
-      };
-      console.log("[Auth] Found user from Supabase:", user.value.email);
-      await fetchProfile();
-    }
+    loading.value = true;
+    _ready = (async () => {
+      // --- Restore existing session ---
+      const { data } = await supabase.auth.getSession();
 
-    // --- Listen for auth changes (sign-in/out, refresh) ---
-    if (!unsub) {
-      const { data: sub } = supabase.auth.onAuthStateChange(
-        async (_evt, session) => {
-          if (session?.user) {
-            // user logged in or refreshed
-            user.value = {
-              id: session.user.id,
-              email: session.user.email ?? null,
-            };
+      if (data.session?.user) {
+        user.value = {
+          id: data.session.user.id,
+          email: data.session.user.email ?? null,
+        };
+        await fetchProfile(); // ensure first paint has profile if possible
+      }
 
-            // ⚠️ Don't clear profile mid-refresh to prevent UI flicker
-            loading.value = true;
-            await fetchProfile();
-            loading.value = false;
-          } else {
-            // user logged out
-            clear();
+      // --- Listen for auth changes (sign-in/out, refresh) ---
+      if (!unsub) {
+        const { data: sub } = supabase.auth.onAuthStateChange(
+          async (_evt, session) => {
+            if (session?.user) {
+              user.value = {
+                id: session.user.id,
+                email: session.user.email ?? null,
+              };
+              // avoid flicker during refresh
+              loading.value = true;
+              await fetchProfile();
+              loading.value = false;
+            } else {
+              clear();
+            }
           }
-        }
-      );
-      unsub = () => sub.subscription.unsubscribe();
-    }
+        );
+        unsub = () => sub.subscription.unsubscribe();
+      }
 
-    loading.value = false; // session initialization complete
-    return unsub;
+      loading.value = false; // session initialization complete
+    })();
+
+    return _ready;
   }
 
   // Fetch the user's profile from the "users" table
   async function fetchProfile() {
-    console.log("[Profile] Fetching profile...");
     if (!user.value) {
-      console.log("[Profile] No user found");
       profile.value = null;
       return;
     }
@@ -82,15 +83,13 @@ export const useSessionUser = defineStore("sessionUser", () => {
       .from("users")
       .select("id, display_name, avatar_url, role")
       .eq("id", user.value.id)
-      .maybeSingle(); // ✅ safer than .single(), won’t throw if row doesn’t exist
+      .maybeSingle();
 
     if (!error && data) {
       profile.value = data as Profile;
-      console.log("[Profile] Data loaded:", profile.value);
     } else {
       console.warn("[Profile] Error fetching user profile:", error);
-      // ⚠️ Optionally keep old profile to avoid flicker on transient errors
-      // profile.value = null;
+      // keep previous profile on transient errors to avoid UI flicker
     }
   }
 
@@ -108,7 +107,7 @@ export const useSessionUser = defineStore("sessionUser", () => {
   function clear() {
     user.value = null;
     profile.value = null;
-    loading.value = false; // ✅ ensure loading resets after logout
+    loading.value = false;
   }
 
   // ===== Expose store =====
@@ -128,5 +127,15 @@ export const useSessionUser = defineStore("sessionUser", () => {
     fetchProfile,
     signOut,
     clear,
+
+    // awaitable promise for router/navbars to block on
+    get readyPromise() {
+      return _ready ?? Promise.resolve();
+    },
+
+    // optional helper if you prefer a method
+    awaitReady() {
+      return _ready ?? Promise.resolve();
+    },
   };
 });
