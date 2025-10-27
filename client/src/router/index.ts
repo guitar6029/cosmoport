@@ -4,7 +4,7 @@ import Dashboard from "../views/Dashboard.vue";
 import About from "../views/AboutView.vue";
 import FlightsView from "../views/Flights.vue";
 import LoginView from "../views/LoginView.vue";
-
+import Account from "../views/Account.vue";
 const routes = [
   {
     path: "/",
@@ -36,6 +36,11 @@ const routes = [
     name: "Login",
     component: LoginView,
   },
+  {
+    path: "/account",
+    name: "Account",
+    component: Account
+  }
 ];
 
 export const router = createRouter({
