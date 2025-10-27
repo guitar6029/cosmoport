@@ -8,7 +8,9 @@ import stationimg from '../assets/img/station_1.jpg'
             <div class="max-w-md">
                 <h1 class="text-5xl font-bold">CostmoPort</h1>
                 <p class="py-6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In, aspernatur? Et error eius, facilis aut expedita eaque tenetur, ea non accusamus distinctio natus corrupti eveniet nisi, voluptatum similique aperiam saepe!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In, aspernatur? Et error eius, facilis aut
+                    expedita eaque tenetur, ea non accusamus distinctio natus corrupti eveniet nisi, voluptatum
+                    similique aperiam saepe!
                 </p>
                 <button class="btn btn-primary">Get Started</button>
             </div>
