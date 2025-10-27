@@ -2,8 +2,9 @@
 import { ref, reactive, computed } from 'vue'
 import { supabase } from '../lib/supabase'
 import space_station from '../assets/img/station_1.jpg'
-
+import { useRouter } from 'vue-router'
 const loading = ref(false)
+const router = useRouter()
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const form = reactive({
@@ -11,39 +12,17 @@ const form = reactive({
     password: '',
 })
 
-async function fetchUserAndRoles(userId: string) {
-    try {
-        const { data, error } = await supabase
-            .from('users')
-            .select('id, display_name, avatar_url, role')
-            .eq('id', userId)
-            .single()
-
-        if (error) throw error
-        return data
-    } catch (err) {
-        console.error('Error fetching user roles:', err)
-        return null
-    }
-}
-
 async function signInWithEmail() {
     loading.value = true
     try {
-        const { data, error } = await supabase.auth.signInWithPassword({
+        const { error } = await supabase.auth.signInWithPassword({
             email: form.email,
             password: form.password,
         })
 
         if (error) throw error
-
-        // ✅ login success → get user details
-        const userProfile = await fetchUserAndRoles(data.user.id)
-        console.log('Auth data:', data)
-        console.log('Profile data:', userProfile)
-
-        // here you can later save both to Pinia store
-        // sessionStore.setUser({ ...data.user, ...userProfile })
+        //now redirect to dashboard
+        router.push({ name: 'Dashboard' })
 
     } catch (err) {
         console.error('Login failed:', err)
