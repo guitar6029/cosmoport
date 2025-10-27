@@ -1,23 +1,39 @@
 <script setup lang="ts">
 import { useSessionUser } from '../store/useSessionUser';
-import { computed } from 'vue';
-import type { Profile } from '../types/Profile';
+import { storeToRefs } from 'pinia';
+import Loading from '../ui/Loading.vue';
 
-//get user from the store
+// get user from the store
 const sessionUserStore = useSessionUser();
-const profile = computed<Profile | null>(() => sessionUserStore.profile);
-
+const { loading, profile, displayName } = storeToRefs(sessionUserStore);
 </script>
 
-
 <template>
-    <section class="flex flex-col gap-2">
-        <h1>Hello {{ profile?.display_name ?? 'User' }}</h1>
-        <div class="avatar">
+    <!-- Show loader while session/profile is still bootstrapping -->
+    <section v-if="loading" class="flex flex-col items-center justify-center gap-2">
+        <Loading />
+    </section>
+
+    <!-- Show user profile once loaded -->
+    <section v-else class="flex flex-col gap-4">
+        <h1 class="text-2xl font-semibold">
+            Hello {{ displayName ?? 'User' }}
+        </h1>
+
+        <figure class="avatar">
             <div class="w-24 rounded">
-                <img src="https://img.daisyui.com/images/profile/demo/batperson@192.webp" />
+                <img :src="profile?.avatar_url || 'https://img.daisyui.com/images/profile/demo/batperson@192.webp'"
+                    alt="User avatar" />
             </div>
-        </div>
+        </figure>
+
         <button class="btn btn-primary w-fit">Change Avatar</button>
+
+        <article>
+            <h2 class="text-lg font-medium">User Role</h2>
+            <div class="badge badge-primary capitalize">
+                {{ profile?.role ?? 'User' }}
+            </div>
+        </article>
     </section>
 </template>
