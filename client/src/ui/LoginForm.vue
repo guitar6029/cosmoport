@@ -64,9 +64,9 @@ const canSubmit = computed(() => {
 </script>
 
 <template>
-    <form class="row flex-center flex" @submit.prevent="signInWithEmail()">
+    <form @submit.prevent="signInWithEmail()">
         <div class="hero bg-base-200 min-h-screen">
-            <div class="hero-content flex flex-row items-center gap-2">
+            <div class="hero-content flex flex-col md:flex-row items-center gap-2">
                 <img :src="space_station" alt="space station" class="rounded-lg shadow-2xl size-48">
                 <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl flex flex-col gap-2">
                     <div class="card-body">
