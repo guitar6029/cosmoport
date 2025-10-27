@@ -11,19 +11,47 @@ const form = reactive({
     password: '',
 })
 
+async function fetchUserAndRoles(userId: string) {
+    try {
+        const { data, error } = await supabase
+            .from('users')
+            .select('id, display_name, avatar_url, role')
+            .eq('id', userId)
+            .single()
+
+        if (error) throw error
+        return data
+    } catch (err) {
+        console.error('Error fetching user roles:', err)
+        return null
+    }
+}
+
 async function signInWithEmail() {
     loading.value = true
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: form.email,
-        password: form.password,
-    })
-    if (error) {
-        console.error(error);
-        loading.value = false;
+    try {
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: form.email,
+            password: form.password,
+        })
+
+        if (error) throw error
+
+        // ✅ login success → get user details
+        const userProfile = await fetchUserAndRoles(data.user.id)
+        console.log('Auth data:', data)
+        console.log('Profile data:', userProfile)
+
+        // here you can later save both to Pinia store
+        // sessionStore.setUser({ ...data.user, ...userProfile })
+
+    } catch (err) {
+        console.error('Login failed:', err)
+    } finally {
+        loading.value = false
     }
-    console.log(data)
-    loading.value = false;
 }
+
 
 
 const canSubmit = computed(() => {
