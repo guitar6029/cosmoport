@@ -2,10 +2,19 @@
 import { useSessionUser } from '../store/useSessionUser';
 import { storeToRefs } from 'pinia';
 import Loading from '../ui/Loading.vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
 // get user from the store
 const sessionUserStore = useSessionUser();
 const { loading, profile, displayName } = storeToRefs(sessionUserStore);
+
+async function signOut() {
+    await sessionUserStore.signOut();
+    //go back to landing page
+    router.push({ name: 'Home' });
+}
+
 </script>
 
 <template>
@@ -34,6 +43,10 @@ const { loading, profile, displayName } = storeToRefs(sessionUserStore);
             <div class="badge badge-primary capitalize">
                 {{ profile?.role ?? 'User' }}
             </div>
+        </article>
+
+        <article>
+            <button class="w-fit btn btn-primary" @click="signOut()">Sign Out</button>
         </article>
     </section>
 </template>
