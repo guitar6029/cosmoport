@@ -17,15 +17,16 @@ const isAuthed = computed(() => sessionUserStore.isAuthed);
                 <RouterLink to="/">
                     <div class="text-2xl font-bold font-space">CostmoPort</div>
                 </RouterLink>
-                <RouterLink to="/voyages">Voyages</RouterLink>
+                <RouterLink to="/voyages" class="uppercase">Voyages</RouterLink>
                 <!-- <RouterLink to="/about">About</RouterLink> -->
             </div>
             <div class="flex items-center gap-2">
-                <RouterLink to="/login" v-if="!isAuthed">Login</RouterLink>
-                <RouterLink to="/account" v-if="isAuthed">
+                <RouterLink to="/login" v-if="!isAuthed" class="uppercase">Login</RouterLink>
+                <RouterLink to="/account" v-if="isAuthed" class="uppercase">
                     <Account />
                 </RouterLink>
-                <RouterLink v-if="isAuthed" to="/dashboard">Dashboard</RouterLink>
+                <!-- only if the user has an ongoing voyage -->
+                <RouterLink v-if="isAuthed" to="/dashboard" class="uppercase">Dashboard</RouterLink>
                 <!-- save for later when dashboard is implemented and user auth is implemented -->
                 <!-- <RouterLink to="/dashnoard">Dashboard</RouterLink> -->
 
