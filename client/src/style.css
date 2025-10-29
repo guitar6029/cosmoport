@@ -14,7 +14,6 @@
   font-display: swap; /* prevents FOIT */
 }
 
-
 @layer utilities {
   .zoom-in {
     @apply transition-transform duration-300 ease-in-out hover:scale-125;
@@ -26,3 +25,22 @@
   font-family: "Space Power", sans-serif;
   letter-spacing: 0.7rem;
 }
+
+/* animations */
+
+.slide-in-enter-active,
+.slide-in-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-in-enter-from {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+}
+
+.slide-in-leave-to {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+}
+
+

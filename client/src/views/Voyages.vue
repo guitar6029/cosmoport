@@ -75,18 +75,4 @@ const handleVoyageDetails = (voyage: Voyage) => {
     transition: transform 0.4s ease;
 }
 
-.slide-in-enter-active,
-.slide-in-leave-active {
-    transition: all 0.3s ease;
-}
-
-.slide-in-enter-from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.98);
-}
-
-.slide-in-leave-to {
-    opacity: 0;
-    transform: translateY(20px) scale(0.98);
-}
 </style>
