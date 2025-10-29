@@ -5,6 +5,7 @@ import Loading from '../ui/Loading.vue';
 import type { Voyage } from '../types/Voyage.ts';
 import VoyageCard from '../ui/VoyageCard.vue';
 import BaseModal from '../ui/BaseModal.vue';
+import { getDifficultyClass } from '../utils/difficultyUtils'
 
 const loading = ref(true)
 const voyages = ref<Voyage[] | null>([])
@@ -38,7 +39,8 @@ const handleVoyageDetails = (voyage: Voyage) => {
             @close="isModalShowing = false">
             <p class="text-xl">{{ selectedVoyage?.description }}</p>
             <p class="text-xl">Duration: {{ selectedVoyage?.durationMinutes }}</p>
-            <div class="badge text-xl">Difficulty: {{ selectedVoyage?.difficulty }}</div>
+            <div :class="['badge badge-xl', getDifficultyClass(selectedVoyage?.difficulty as Voyage['difficulty'])]">Difficulty: {{ selectedVoyage?.difficulty }}</div>
+            <div>Recommended Ship : {{  selectedVoyage?.recommendedShip }}</div>
         </BaseModal>
 
         <h1 class="font-space text-6xl">Voyages</h1>

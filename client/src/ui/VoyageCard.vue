@@ -27,14 +27,14 @@ defineEmits<{
             <div :class="['badge badge-xl', getDifficultyClass(voyage.difficulty)]">{{ voyage.difficulty }}</div>
             <div class="flex flex-row items-center gap-2 m-2">
                 <Eclipse class="w-6 h-6" />
-                <span>Origin: {{ voyage.origin }}</span>
+                <span>Origin: <span class="font-bold">{{ voyage.origin }}</span></span>
             </div>
             <div class="flex flex-row items-center gap-2 m-2">
                 <Eclipse class="w-6 h-6" />
-                <span>Destination: {{ voyage.destination }}</span>
+                <span>Destination: <span class="font-bold">{{ voyage.destination }}</span></span>
             </div>
             <div class="card-actions">
-                <button @click="$emit('view-voyage-details', voyage)" class="btn btn-primary">More Info</button>
+                <button @click="$emit('view-voyage-details', voyage)" class="btn btn-primary text-xl">More Info</button>
             </div>
         </div>
     </div>
