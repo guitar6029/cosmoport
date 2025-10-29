@@ -50,7 +50,7 @@ const handleVoyageDetails = (voyage: Voyage) => {
     </section>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 /* Use :deep() so the classes apply to the child component roots (VoyageCard) */
 :deep(.fade-enter-active),
 :deep(.fade-leave-active) {
@@ -75,4 +75,4 @@ const handleVoyageDetails = (voyage: Voyage) => {
     transition: transform 0.4s ease;
 }
 
-</style>
+</style> -->

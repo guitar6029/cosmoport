@@ -120,34 +120,3 @@ function fetchVoyage() {
         </div>
     </Transition>
 </template>
-
-<style scoped>
-@reference "../style.css";
-/* <-- tell Tailwind where the utilities live */
-
-/* ENTER */
-.rail-enter-from {
-    @apply scale-y-0 opacity-70;
-}
-
-.rail-enter-active {
-    @apply transition transition-transform duration-500 ease-out origin-bottom delay-250;
-}
-
-.rail-enter-to {
-    @apply scale-y-100 opacity-100;
-}
-
-/* LEAVE (optional) */
-.rail-leave-from {
-    @apply scale-y-100 opacity-100;
-}
-
-.rail-leave-active {
-    @apply transition transition-transform duration-400 ease-in origin-bottom;
-}
-
-.rail-leave-to {
-    @apply scale-y-0 opacity-60;
-}
-</style>
