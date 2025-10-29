@@ -37,7 +37,7 @@ const handleVoyageDetails = (voyage: Voyage) => {
     <section v-else class="flex flex-col items-center gap-6">
         <Transition name="slide-in">
             <BaseModal v-show="isModalShowing" :show="isModalShowing" :title="selectedVoyage?.name"
-                :open="isModalShowing" @close="isModalShowing = false">
+                :open="isModalShowing" @close="isModalShowing = false" uppercase titleClass="font-space">
                 <VoyageMoreDetails :selectedVoyage="selectedVoyage" />
             </BaseModal>
         </Transition>
