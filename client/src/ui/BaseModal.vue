@@ -12,9 +12,8 @@ watch(() => props.show, v => v ? dialogRef.value?.showModal() : dialogRef.value?
     <dialog ref="dialogRef" class="modal" @close="emit('close')">
         <div class="modal-box flex flex-col gap-4 max-w-4xl">
             <h3 class="font-bold text-2xl">{{ title }}</h3>
-            <div class="flex flex-col gap-2">
-                <slot />
-            </div>
+            <slot />
+
             <div class="modal-action">
                 <button type="button" class="btn" @click="dialogRef?.close()">Close</button>
             </div>
