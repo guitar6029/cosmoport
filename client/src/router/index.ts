@@ -4,6 +4,7 @@ import Dashboard from "../views/Dashboard.vue";
 import About from "../views/AboutView.vue";
 import FlightsView from "../views/Flights.vue";
 import LoginView from "../views/LoginView.vue";
+import VoyagesView from "../views/Voyages.vue";
 import Account from "../views/Account.vue";
 import { useSessionUser } from "../store/useSessionUser";
 
@@ -18,6 +19,11 @@ const routes = [
     path: "/flights",
     name: "Flights",
     component: FlightsView,
+  },
+  {
+    path: "/voyages",
+    name: "Voyages",
+    component: VoyagesView,
   },
   {
     path: "/dashboard",

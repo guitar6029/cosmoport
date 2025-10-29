@@ -13,11 +13,11 @@ const isAuthed = computed(() => sessionUserStore.isAuthed);
 <template>
     <header class="nav bg-base-300">
         <nav class="flex flex-row items-center justify-between p-4">
-            <div class="flex items-center gap-2">
+            <div class="flex items-end gap-2">
                 <RouterLink to="/">
-                    <div class="text-2xl font-bold">CostmoPort</div>
+                    <div class="text-2xl font-bold font-space">CostmoPort</div>
                 </RouterLink>
-                <RouterLink to="/flights">Flights</RouterLink>
+                <RouterLink to="/voyages">Voyages</RouterLink>
                 <!-- <RouterLink to="/about">About</RouterLink> -->
             </div>
             <div class="flex items-center gap-2">
