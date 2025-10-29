@@ -58,15 +58,28 @@ function fetchVoyage() {
 
     <!-- Success -->
     <Transition name="slide-in" mode="out-in" appear v-else>
-        <div class="flex flex-col justify-center gap-6">
+        <div class="flex flex-col justify-center gap-6 relative">
+            <div class="absolute top-4 right-0 w-12 h-2 bg-primary">
+            </div>
+            <Transition name="rail" appear>
+                <div class="absolute bottom-0 left-0 w-full h-12 bg-primary z-0 pointer-events-none" />
+            </Transition>
+            <Transition name="rail" appear>
+                <div class="absolute top-0 left-0 w-full h-2 bg-primary">
+                </div>
+            </Transition>
+
+            <div class="absolute bottom-4 left-0 w-4 h-24 bg-primary">
+            </div>
+
             <h1 class="p-2 rounded-xl font-bold font-space text-4xl md:text-8xl text-primary">
                 {{ voyage?.name }}
             </h1>
 
             <div
-                class="card shadow-2xl shadow-accent flex flex-col items-center md:items-start md:flex-row md:flex-wrap gap-2 p-2">
-                <div class="flex-1 flex flex-col items-center md:items-start gap-6 p-2">
-                    <p class="text-4xl md:text-4xl text-wrap max-w-2xl">{{ voyage?.description }}</p>
+                class="card shadow-2xl shadow-accent flex flex-col items-center justify-center md:flex-row md:flex-wrap gap-2 p-2">
+                <div class="flex-1 flex flex-col items-center  gap-6 p-2">
+                    <p class="text-4xl md:text-4xl text-wrap max-w-2xl text-center">{{ voyage?.description }}</p>
                     <Difficulty :difficulty="voyage?.difficulty ?? null" />
 
                     <!-- ORIGIN -->
@@ -101,9 +114,40 @@ function fetchVoyage() {
 
                 <div class="flex items-center justify-center">
                     <img :src="voyage?.imageUrl" :alt="`${voyage?.name} image`"
-                        class="w-full h-full object-cover rounded-xl" />
+                        class="w-full h-full object-cover rounded-4xl" />
                 </div>
             </div>
         </div>
     </Transition>
 </template>
+
+<style scoped>
+@reference "../style.css";
+/* <-- tell Tailwind where the utilities live */
+
+/* ENTER */
+.rail-enter-from {
+    @apply scale-y-0 opacity-70;
+}
+
+.rail-enter-active {
+    @apply transition transition-transform duration-500 ease-out origin-bottom delay-250;
+}
+
+.rail-enter-to {
+    @apply scale-y-100 opacity-100;
+}
+
+/* LEAVE (optional) */
+.rail-leave-from {
+    @apply scale-y-100 opacity-100;
+}
+
+.rail-leave-active {
+    @apply transition transition-transform duration-400 ease-in origin-bottom;
+}
+
+.rail-leave-to {
+    @apply scale-y-0 opacity-60;
+}
+</style>
