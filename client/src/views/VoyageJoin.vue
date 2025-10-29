@@ -27,6 +27,11 @@ watch(() => route.params.name, () => {
     fetchVoyage()
 })
 
+
+function handleBeginVoyage() {
+    console.log("begin voyage")
+}
+
 function fetchVoyage() {
     const voyageName = String(route.params.name ?? '')
     const found = voyagesData.find(v => v.name === voyageName)
@@ -57,7 +62,7 @@ function fetchVoyage() {
     </section>
 
     <!-- Success -->
-    <Transition name="slide-in" mode="out-in" appear v-else>
+    <Transition name="slide-in" mode="out-in" appear v-else class="flex flex-col gap-4">
         <div class="flex flex-col justify-center gap-6 relative">
             <div class="absolute top-4 right-0 w-12 h-2 bg-primary">
             </div>
@@ -110,6 +115,9 @@ function fetchVoyage() {
                         <span>Reward - </span>
                         <span class="font-bold badge badge-xl badge-outline">{{ voyage?.reward }}</span>
                     </div>
+
+                    <button @click="handleBeginVoyage()"
+                        class="btn btn-secondary w-fit text-xl uppercase font-space">Launch Protocol</button>
                 </div>
 
                 <div class="flex items-center justify-center">
@@ -117,6 +125,15 @@ function fetchVoyage() {
                         class="w-full h-full object-cover rounded-4xl" />
                 </div>
             </div>
+
         </div>
+
+
+
     </Transition>
+
+
+
+
+
 </template>
