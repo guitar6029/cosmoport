@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Voyage } from '../types/Voyage';
 import { Eclipse } from 'lucide-vue-next';
-import { getDifficultyClass } from '../utils/difficultyUtils'
+import Difficulty from './Badge/Difficulty.vue';
 import UiIcon from './UiIcon.vue';
 import { Timer } from 'lucide-vue-next';
 defineProps<{
@@ -29,7 +29,7 @@ defineEmits<{
         <div class="card-body flex flex-col gap-2">
             <h2 class="card-title">{{ voyage.name }}</h2>
             <p class="line-clamp-2">{{ voyage.description }}</p>
-            <div :class="['badge badge-xl', getDifficultyClass(voyage.difficulty)]">{{ voyage.difficulty }}</div>
+            <Difficulty :difficulty="voyage.difficulty" />
             <div class="flex flex-row items-center gap-2 m-2">
                 <Eclipse class="w-6 h-6" />
                 <span>Origin: <span class="font-bold">{{ voyage.origin }}</span></span>
@@ -39,7 +39,8 @@ defineEmits<{
                 <span>Destination: <span class="font-bold">{{ voyage.destination }}</span></span>
             </div>
             <div class="card-actions flex flex-col md:flex-row items-center gap-2">
-                <button @click="$emit('view-voyage-details', voyage)" class="btn btn-primary flex-1 text-xl">More Info</button>
+                <button @click="$emit('view-voyage-details', voyage)" class="btn btn-primary flex-1 text-xl">More
+                    Info</button>
                 <RouterLink :to="{ name: 'voyage-details', params: { name: voyage.name } }"
                     class="btn btn-secondary text-xl flex-1">Join</RouterLink>
             </div>
