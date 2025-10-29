@@ -38,10 +38,10 @@ defineEmits<{
                 <Eclipse class="w-6 h-6" />
                 <span>Destination: <span class="font-bold">{{ voyage.destination }}</span></span>
             </div>
-            <div class="card-actions">
-                <button @click="$emit('view-voyage-details', voyage)" class="btn btn-primary text-xl">More Info</button>
+            <div class="card-actions flex flex-col md:flex-row items-center gap-2">
+                <button @click="$emit('view-voyage-details', voyage)" class="btn btn-primary flex-1 text-xl">More Info</button>
                 <RouterLink :to="{ name: 'voyage-details', params: { name: voyage.name } }"
-                    class="btn btn-secondary text-xl">Join</RouterLink>
+                    class="btn btn-secondary text-xl flex-1">Join</RouterLink>
             </div>
         </div>
     </div>
