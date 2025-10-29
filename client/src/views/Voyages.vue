@@ -25,7 +25,7 @@ const fetchVoyages = async () => {
     <section v-if="loading">
         <Loading />
     </section>
-    <section v-else class="flex flex-col gap-2">
+    <section v-else class="flex flex-col gap-6">
         <h1 class="font-space text-2xl">Voyages</h1>
         <div class="flex items-center flex-wrap gap-4">
             <VoyageCard :voyage="voyage" v-for="voyage in voyages" :key="voyage.id" />
