@@ -35,10 +35,12 @@ const handleVoyageDetails = (voyage: Voyage) => {
         <Loading />
     </section>
     <section v-else class="flex flex-col gap-6">
-        <BaseModal v-show="isModalShowing" :show="isModalShowing" :title="selectedVoyage?.name" :open="isModalShowing"
-            @close="isModalShowing = false">
-            <VoyageMoreDetails :selectedVoyage="selectedVoyage" />
-        </BaseModal>
+        <Transition name="slide-in">
+            <BaseModal v-show="isModalShowing" :show="isModalShowing" :title="selectedVoyage?.name"
+                :open="isModalShowing" @close="isModalShowing = false">
+                <VoyageMoreDetails :selectedVoyage="selectedVoyage" />
+            </BaseModal>
+        </Transition>
 
         <h1 class="font-space text-6xl">Voyages</h1>
         <TransitionGroup name="fade" tag="div" appear class="flex items-center flex-wrap gap-4">
@@ -71,5 +73,20 @@ const handleVoyageDetails = (voyage: Voyage) => {
 /* (Optional) If you ever reorder/filter, this makes movement smooth */
 :deep(.fade-move) {
     transition: transform 0.4s ease;
+}
+
+.slide-in-enter-active,
+.slide-in-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-in-enter-from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+}
+
+.slide-in-leave-to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
 }
 </style>
