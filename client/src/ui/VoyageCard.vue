@@ -19,8 +19,7 @@ defineEmits<{
 <template>
     <div class="card card-xl card-border bg-base-100 w-96 shadow-sm">
         <figure class="relative">
-            <img :src="voyage.imageUrl" :alt="voyage.description"
-                class="transition-transform duration-300 ease-in-out hover:scale-125" />
+            <img :src="voyage.imageUrl" :alt="voyage.description" class="zoom-in" />
             <div
                 class="absolute bottom-2 right-2 border-2 border-primary rounded-xl p-2 w-fit bg-accent h-fit flex items-center gap-2">
                 <UiIcon :icon="Timer" size="lg" customClass="text-primary" />
@@ -41,6 +40,8 @@ defineEmits<{
             </div>
             <div class="card-actions">
                 <button @click="$emit('view-voyage-details', voyage)" class="btn btn-primary text-xl">More Info</button>
+                <RouterLink :to="{ name: 'voyage-details', params: { name: voyage.name } }"
+                    class="btn btn-secondary text-xl">Join</RouterLink>
             </div>
         </div>
     </div>

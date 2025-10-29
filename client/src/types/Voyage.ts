@@ -4,7 +4,7 @@ export interface Voyage {
   description: string;
   origin: string;
   destination: string;
-  difficulty: "Easy" | "Moderate" | "Hard";
+  difficulty: "Easy" | "Moderate" | "Hard" | null;
   recommendedShip: "Scout" | "Freighter" | "Explorer" | "Fighter";
   reward: string;
   durationMinutes: number;
