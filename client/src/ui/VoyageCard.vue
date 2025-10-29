@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { Voyage } from '../types/Voyage';
 import { Eclipse } from 'lucide-vue-next';
+import { getDifficultyClass } from '../utils/difficultyUtils'
+
 defineProps<{
     voyage: Voyage
 }>();
@@ -10,11 +12,7 @@ defineEmits<{
 }>();
 
 
-const difficultyClass: Record<Voyage['difficulty'], string> = {
-    Easy: 'badge-success',
-    Moderate: 'badge-warning',
-    Hard: 'badge-error',
-};
+
 </script>
 
 <template>
@@ -26,7 +24,7 @@ const difficultyClass: Record<Voyage['difficulty'], string> = {
         <div class="card-body flex flex-col gap-4">
             <h2 class="card-title">{{ voyage.name }}</h2>
             <p class="line-clamp-2">{{ voyage.description }}</p>
-            <div :class="['badge badge-xl', difficultyClass[voyage.difficulty]]">{{ voyage.difficulty }}</div>
+            <div :class="['badge badge-xl', getDifficultyClass(voyage.difficulty)]">{{ voyage.difficulty }}</div>
             <div class="flex flex-row items-center gap-2 m-2">
                 <Eclipse class="w-6 h-6" />
                 <span>Origin: {{ voyage.origin }}</span>
