@@ -17,7 +17,7 @@ defineEmits<{
 </script>
 
 <template>
-    <div class="card card-xl card-border bg-base-100 w-96 shadow-sm">
+    <div class="card card-xl card-border bg-base-100 w-96 shadow-sm hover-bg hover:bg-accent">
         <figure class="relative">
             <img :src="voyage.imageUrl" :alt="voyage.description" class="zoom-in" />
             <div
