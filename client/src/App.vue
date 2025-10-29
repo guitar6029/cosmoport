@@ -4,7 +4,7 @@ import Navbar from './ui/Navbar.vue';
 </script>
 
 <template>
-  <div class="min-h-dvh flex flex-col gap-8">
+  <div class="min-h-dvh flex flex-col gap-8 overflow-hidden">
     <header>
       <Navbar />
     </header>
