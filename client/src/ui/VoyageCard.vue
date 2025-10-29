@@ -2,7 +2,8 @@
 import type { Voyage } from '../types/Voyage';
 import { Eclipse } from 'lucide-vue-next';
 import { getDifficultyClass } from '../utils/difficultyUtils'
-
+import UiIcon from './UiIcon.vue';
+import { Timer } from 'lucide-vue-next';
 defineProps<{
     voyage: Voyage
 }>();
@@ -17,9 +18,14 @@ defineEmits<{
 
 <template>
     <div class="card card-xl card-border bg-base-100 w-96 shadow-sm">
-        <figure>
+        <figure class="relative">
             <img :src="voyage.imageUrl" :alt="voyage.description"
                 class="transition-transform duration-300 ease-in-out hover:scale-125" />
+            <div
+                class="absolute bottom-2 right-2 border-2 border-primary rounded-xl p-2 w-fit bg-accent h-fit flex items-center gap-2">
+                <UiIcon :icon="Timer" size="lg" customClass="text-primary" />
+                <span class="font-bold text-2xl">{{ voyage.durationMinutes }}</span>
+            </div>
         </figure>
         <div class="card-body flex flex-col gap-2">
             <h2 class="card-title">{{ voyage.name }}</h2>
