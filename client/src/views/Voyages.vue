@@ -49,30 +49,3 @@ const handleVoyageDetails = (voyage: Voyage) => {
         </TransitionGroup>
     </section>
 </template>
-
-<!-- <style scoped>
-/* Use :deep() so the classes apply to the child component roots (VoyageCard) */
-:deep(.fade-enter-active),
-:deep(.fade-leave-active) {
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-/* Initial/target states */
-:deep(.fade-enter-from),
-:deep(.fade-leave-to) {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-:deep(.fade-enter-to),
-:deep(.fade-leave-from) {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* (Optional) If you ever reorder/filter, this makes movement smooth */
-:deep(.fade-move) {
-    transition: transform 0.4s ease;
-}
-
-</style> -->
