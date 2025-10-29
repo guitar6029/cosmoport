@@ -6,7 +6,7 @@ import stationimg from '../assets/img/station_1.jpg'
     <section class="hero bg-base-200 flex flex-col md:flex-row items-center justify-center gap-6">
         <div class="w-full md:max-w-xl flex flex-col items-center gap-12">
             <h1 class="text-2xl md:text-5xl font-bold font-space">CostmoPort</h1>
-            <button class="btn border-2 border-primary text-2xl md:w-fit w-full uppercase">Check Voyages</button>
+            <RouterLink to="/voyages"><button class="btn border-2 border-primary text-2xl md:w-fit w-full uppercase">Check Voyages</button></RouterLink>
         </div>
         <div class="w-full md:max-w-xl">
             <img :src="stationimg" alt="space station"
