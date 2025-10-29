@@ -6,7 +6,7 @@ import type { Voyage } from '../types/Voyage.ts';
 import VoyageCard from '../ui/VoyageCard.vue';
 import BaseModal from '../ui/BaseModal.vue';
 import { getDifficultyClass } from '../utils/difficultyUtils'
-
+import { TransitionGroup } from 'vue'
 const loading = ref(true)
 const voyages = ref<Voyage[] | null>([])
 onMounted(() => {
@@ -38,15 +38,42 @@ const handleVoyageDetails = (voyage: Voyage) => {
         <BaseModal v-show="isModalShowing" :show="isModalShowing" :title="selectedVoyage?.name" :open="isModalShowing"
             @close="isModalShowing = false">
             <p class="text-xl">{{ selectedVoyage?.description }}</p>
-            <p class="text-xl">Duration: {{ selectedVoyage?.durationMinutes }}</p>
-            <div :class="['badge badge-xl', getDifficultyClass(selectedVoyage?.difficulty as Voyage['difficulty'])]">Difficulty: {{ selectedVoyage?.difficulty }}</div>
-            <div>Recommended Ship : {{  selectedVoyage?.recommendedShip }}</div>
+            <p class="text-xl">Duration:<span class="font-bold">{{ selectedVoyage?.durationMinutes }} minutes</span></p>
+            <div :class="['badge badge-xl', getDifficultyClass(selectedVoyage?.difficulty as Voyage['difficulty'])]">
+                {{ selectedVoyage?.difficulty }}</div>
+            <div>Recommended Ship : {{ selectedVoyage?.recommendedShip }}</div>
         </BaseModal>
 
         <h1 class="font-space text-6xl">Voyages</h1>
-        <div class="flex items-center flex-wrap gap-4">
-            <VoyageCard :voyage="voyage" v-for="voyage in voyages" :key="voyage.id"
-                @view-voyage-details="handleVoyageDetails($event)" />
-        </div>
+        <TransitionGroup name="fade" tag="div" appear class="flex items-center flex-wrap gap-4">
+            <VoyageCard v-for="(voyage, index) in voyages" :key="voyage.id" :voyage="voyage"
+                :style="{ transitionDelay: `${index * 100}ms` }" @view-voyage-details="handleVoyageDetails($event)" />
+        </TransitionGroup>
     </section>
 </template>
+
+<style scoped>
+/* Use :deep() so the classes apply to the child component roots (VoyageCard) */
+:deep(.fade-enter-active),
+:deep(.fade-leave-active) {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Initial/target states */
+:deep(.fade-enter-from),
+:deep(.fade-leave-to) {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+:deep(.fade-enter-to),
+:deep(.fade-leave-from) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* (Optional) If you ever reorder/filter, this makes movement smooth */
+:deep(.fade-move) {
+    transition: transform 0.4s ease;
+}
+</style>
