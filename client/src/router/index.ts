@@ -7,6 +7,7 @@ import LoginView from "../views/LoginView.vue";
 import VoyagesView from "../views/Voyages.vue";
 import Account from "../views/Account.vue";
 import { useSessionUser } from "../store/useSessionUser";
+import VoyageJoin from "../views/VoyageJoin.vue";
 
 //routes for the app
 const routes = [
@@ -39,6 +40,11 @@ const routes = [
     path: "/login",
     name: "Login",
     component: LoginView,
+  },
+  {
+    path: "/voyages/:name",
+    name: "voyage-details",
+    component: VoyageJoin,
   },
   {
     path: "/account",
