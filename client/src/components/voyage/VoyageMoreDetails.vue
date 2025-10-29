@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { Voyage } from '../../types/Voyage';
-import { getDifficultyClass } from '../../utils/difficultyUtils'
+import Difficulty from '../../ui/Badge/Difficulty.vue';
 import { Clock, Eclipse, DollarSign } from 'lucide-vue-next';
 import UiIcon from '../../ui/UiIcon.vue';
 
@@ -14,8 +14,7 @@ defineProps<{
         <!-- left side on large screens -->
         <div class="flex flex-col gap-4">
             <p class="text-xl">{{ selectedVoyage?.description }}</p>
-            <div :class="['badge badge-xl', getDifficultyClass(selectedVoyage?.difficulty as Voyage['difficulty'])]">
-                {{ selectedVoyage?.difficulty }}</div>
+            <Difficulty :difficulty="selectedVoyage?.difficulty ?? null" />
             <div class="text-xl flex items-center gap-2">
                 <UiIcon :icon="Clock" size="lg" customClass="text-primary" />
                 <span>Duration</span>
