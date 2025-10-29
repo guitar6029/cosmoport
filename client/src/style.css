@@ -1,9 +1,21 @@
 @import "tailwindcss";
 
-
 @plugin "daisyui";
-
 
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, abyss;
+}
+
+@font-face {
+  font-family: "Space Power";
+  src: url("../src//assets//fonts//space-power-demo..ttf") format("truetype");
+  font-weight: 400; /* adjust if your file is bold, etc. */
+  font-style: normal;
+  font-display: swap; /* prevents FOIT */
+}
+
+/* optional helper class */
+.font-space {
+  font-family: "Space Power", sans-serif;
+  letter-spacing: 0.7rem;
 }
