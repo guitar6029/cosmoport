@@ -43,50 +43,52 @@ const fetchVoyage = () => {
         <h1 class="text-4xl">Voyage not found</h1>
         <RouterLink to="/voyages"><button class="btn btn-primary w-fit">Go back to Voyages</button></RouterLink>
     </section>
-    <section v-else class="flex flex-col justify-center gap-4">
-        <div class="flex-col gap-2">
-            <h1 class="p-2 rounded-xl font-bold font-space text-4xl md:text-8xl text-primary">{{ voyageName }}</h1>
-        </div>
-        <div class="card flex flex-col md:flex-row md:flex-wrap gap-2">
-            <div class="card-body flex-1 flex flex-col gap-2">
-                <!-- <h2 class="card-title">{{ voyage?.name }}</h2> -->
-                <p class="text-2xl md:text-4xl">{{ voyage?.description }}</p>
-                <div class="card-body">
-                    <Difficulty :difficulty="voyage?.difficulty ?? null" />
-                    <!-- DURATION -->
-                    <div class="text-xl flex flex-row items-center gap-2">
-                        <UiIcon :icon="Clock" size="lg" customClass="text-primary" />
-                        <span>Duration</span>
-                        <span class="font-bold badge badge-xl badge-outline">{{ voyage?.durationMinutes }}
-                            minutes</span>
-                    </div>
-                    <!-- ORIGIN -->
-                    <div class="flex text-xl flex-row items-center gap-2">
-                        <UiIcon :icon="Eclipse" size="lg" customClass="text-primary" />
-                        <span>Origin<span class="font-bold">{{ voyage?.origin }}</span></span>
-                    </div>
-                    <!-- DESTINATION -->
-                    <div class="flex text-xl flex-row items-center gap-2">
-                        <UiIcon :icon="Eclipse" size="lg" customClass="text-primary" />
-                        <span>Destination<span class="font-bold">{{ voyage?.destination }}</span></span>
-                    </div>
-                    <!-- REWARD -->
-                    <div class="text-xl flex flex-row items-center gap-2">
-                        <UiIcon :icon="DollarSign" size="lg" customClass="text-primary" />
-                        <span>Reward</span>
-                        <span class="font-bold badge badge-xl badge-outline">{{ voyage?.reward }}</span>
-                    </div>
+    <section v-else class="flex flex-col justify-center gap-6">
+        <h1 class="p-2 rounded-xl font-bold font-space text-4xl md:text-8xl text-primary">{{ voyageName }}</h1>
+        <div
+            class="card shadow-2xl shadow-accent flex flex-col items-center md:items-start md:flex-row md:flex-wrap gap-2 p-2">
+            <div class="flex-1 flex flex-col items-center md:items-start gap-6 p-2">
+                <p class="text-4xl md:text-4xl text-wrap max-w-2xl">{{ voyage?.description }}</p>
+                <Difficulty :difficulty="voyage?.difficulty ?? null" />
 
-                    <!-- SHIP  -->
-                    <div class="text-xl flex flex-row items-center gap-2">
-                        <span>Recommended Ship</span>
-                        <span class="font-bold badge badge-xl badge-outline">{{ voyage?.recommendedShip }}</span>
-                    </div>
+                <!-- ORIGIN -->
+                <div class="flex text-4xl flex-row items-center gap-2">
+                    <UiIcon :icon="Eclipse" size="lg" customClass="text-primary" />
+                    <span>Origin - </span>
+                    <span class="font-bold">{{ voyage?.origin }}</span>
+                </div>
+                <!-- DESTINATION -->
+                <div class="flex text-4xl flex-row items-center gap-2">
+                    <UiIcon :icon="Eclipse" size="lg" customClass="text-primary" />
+                    <span>Destination - </span>
+                    <span class="font-bold">{{ voyage?.destination }}</span>
+                </div>
+                <!-- DURATION -->
+                <div class="text-4xl flex flex-row items-center gap-2">
+                    <UiIcon :icon="Clock" size="lg" customClass="text-primary" />
+                    <span>Duration - </span>
+                    <span class="font-bold badge badge-xl badge-outline">{{ voyage?.durationMinutes }}
+                        minutes</span>
+                </div>
+                <!-- REWARD -->
+                <div class="text-4xl flex flex-row items-center gap-2">
+                    <UiIcon :icon="DollarSign" size="lg" customClass="text-primary" />
+                    <span>Reward - </span>
+                    <span class="font-bold badge badge-xl badge-outline">{{ voyage?.reward }}</span>
                 </div>
 
+                <!-- SHIP  -->
+                <!-- <div class="text-4xl flex flex-row items-center gap-2">
+                    <span>Recommended Ship</span>
+                    <span class="font-bold badge badge-xl badge-outline">{{ voyage?.recommendedShip }}</span>
+                </div> -->
+
+                <!-- <RouterLink to="/voyages"><button class="btn btn-accent w-fit">Main</button></RouterLink> -->
+
             </div>
-            <div class="flex-1 flex items-center justify-center ">
-                <img :src="voyage?.imageUrl" :alt="`${voyage?.name} image`" class="rounded-xl shadow-2xl shadow-accent">
+            <div class="flex items-center justify-center ">
+                <img :src="voyage?.imageUrl" :alt="`${voyage?.name} image`"
+                    class="w-full h-full object-cover rounded-xl">
             </div>
         </div>
     </section>
