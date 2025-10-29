@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-    <div :class="['badge badge-xl', getDifficultyClass(difficulty)]">
+    <div :class="['badge badge-xl uppercase', getDifficultyClass(difficulty)]">
         {{ difficulty }}
     </div>
 </template>
