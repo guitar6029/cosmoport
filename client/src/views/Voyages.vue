@@ -5,8 +5,8 @@ import Loading from '../ui/Loading.vue';
 import type { Voyage } from '../types/Voyage.ts';
 import VoyageCard from '../ui/VoyageCard.vue';
 import BaseModal from '../ui/BaseModal.vue';
-import { getDifficultyClass } from '../utils/difficultyUtils'
 import { TransitionGroup } from 'vue'
+import VoyageMoreDetails from '../components/voyage/VoyageMoreDetails.vue';
 const loading = ref(true)
 const voyages = ref<Voyage[] | null>([])
 onMounted(() => {
@@ -37,11 +37,7 @@ const handleVoyageDetails = (voyage: Voyage) => {
     <section v-else class="flex flex-col gap-6">
         <BaseModal v-show="isModalShowing" :show="isModalShowing" :title="selectedVoyage?.name" :open="isModalShowing"
             @close="isModalShowing = false">
-            <p class="text-xl">{{ selectedVoyage?.description }}</p>
-            <p class="text-xl">Duration:<span class="font-bold">{{ selectedVoyage?.durationMinutes }} minutes</span></p>
-            <div :class="['badge badge-xl', getDifficultyClass(selectedVoyage?.difficulty as Voyage['difficulty'])]">
-                {{ selectedVoyage?.difficulty }}</div>
-            <div>Recommended Ship : {{ selectedVoyage?.recommendedShip }}</div>
+            <VoyageMoreDetails :selectedVoyage="selectedVoyage" />
         </BaseModal>
 
         <h1 class="font-space text-6xl">Voyages</h1>

@@ -21,7 +21,7 @@ defineEmits<{
             <img :src="voyage.imageUrl" :alt="voyage.description"
                 class="transition-transform duration-300 ease-in-out hover:scale-125" />
         </figure>
-        <div class="card-body flex flex-col gap-4">
+        <div class="card-body flex flex-col gap-2">
             <h2 class="card-title">{{ voyage.name }}</h2>
             <p class="line-clamp-2">{{ voyage.description }}</p>
             <div :class="['badge badge-xl', getDifficultyClass(voyage.difficulty)]">{{ voyage.difficulty }}</div>
