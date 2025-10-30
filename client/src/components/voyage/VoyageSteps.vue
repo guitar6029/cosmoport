@@ -1,8 +1,15 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import CardSciFi from '../../ui/Card/CardSciFi.vue';
+import AccentPillar from '../../ui/Accents/AccentPillar.vue';
 
 const currentStep = ref(0);
+
+
+import { shipsData } from '../../assets/shipsData';
+import type { Ship } from '../../types/Ship';
+
+
+const ships = ref<Ship[] | null>(shipsData)
 
 /**
  * Increment the current step by 1, unless the current step is 2
@@ -28,12 +35,27 @@ function previousStep() {
     <!-- Steps -->
     <!-- Step 1 -->
     <Transition name="slide-in" mode="out-in" appear v-if="currentStep === 0">
-        <CardSciFi title="Step 1" stepNumber="1">
-            <div class="flex flex-col justify-around gap-2 h-full">
-                
-                <button class="btn btn-primary" @click="nextStep()">Next</button>
+
+        <div class="flex flex-row items-center gap-2">
+
+            <AccentPillar width-accent="w-24">
+                <template #label>1</template>
+                <template #side-label><span class="text-nowrap">Select Ship</span> </template>
+                <template #content>
+                    <div class="card bg-base-200 shadow-lg p-4 h-[80vh] ">
+                        <h2 class="text-2xl font-bold uppercase font-space">Select Ship</h2>
+                        <p class="text-lg">Begin your journey across the galaxy.</p>
+                    </div>
+                </template>
+            </AccentPillar>
+            <div class="flex-1 h-full flex-wrap items-center border-2 border-primary">
+                <div v-for="ship in ships" :key="ship.id" class="w-100 h-100 flex flex-col gap-2 border-2 border-primary">
+                    <span>{{ ship.name }}</span>
+                    <span>{{ ship.size }}</span>
+                    <span>{{ ship.hardpoints }}</span>
+                </div>
             </div>
-        </CardSciFi>
+        </div>
 
     </Transition>
 

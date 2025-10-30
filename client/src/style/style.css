@@ -42,3 +42,13 @@
   font-family: "Space Power", sans-serif;
   letter-spacing: 0.7rem;
 }
+
+
+body {
+  background-image: url('./img/bg-space-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* optional — gives a nice parallax feel */
+  background-color: #000; /* fallback for dark space theme */
+}
