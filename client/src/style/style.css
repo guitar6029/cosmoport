@@ -15,13 +15,26 @@
   font-display: swap; /* prevents FOIT */
 }
 
+@font-face {
+  font-family: "Cyberpunk";
+  src: url("../src//assets//fonts//cyberpunk.ttf") format("truetype");
+  font-weight: 400; /* adjust if your file is bold, etc. */
+  font-style: normal;
+  font-display: swap; /* prevents FOIT */
+}
+
 @layer utilities {
   .zoom-in {
     @apply transition-transform duration-300 ease-in-out hover:scale-125;
   }
-  .hover-bg{
-   @apply transition-colors duration-200 ease-in;
+  .hover-bg {
+    @apply transition-colors duration-200 ease-in;
   }
+}
+
+.font-cyberpunk {
+  font-family: "Cyberpunk", sans-serif;
+  letter-spacing: 0.7rem;
 }
 
 /* optional helper class */
