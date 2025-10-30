@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import type { Voyage } from '../types/Voyage'
 import { voyagesData } from '../assets/voyagesData'
 import Loading from '../ui/Loading.vue'
 import Difficulty from '../ui/Badge/Difficulty.vue'
 import { Clock, Eclipse, DollarSign } from 'lucide-vue-next'
 import UiIcon from '../ui/UiIcon.vue'
+import VoyageSteps from '../components/voyage/VoyageSteps.vue'
 
 const route = useRoute()
 
 const isLoading = ref(true)
 const hasError = ref(false)
 const voyage = ref<Voyage | null>(null)
+
+const beginProtocol = ref(false)
 
 onMounted(async () => {
     await new Promise(r => setTimeout(r, 2500)) // fake latency
@@ -29,7 +32,8 @@ watch(() => route.params.name, () => {
 
 
 function handleBeginVoyage() {
-    console.log("begin voyage")
+    beginProtocol.value = true
+
 }
 
 function fetchVoyage() {
@@ -45,6 +49,21 @@ function fetchVoyage() {
     voyage.value = found
     isLoading.value = false
 }
+
+
+const viewForProtocol = computed(() => {
+    return beginProtocol.value
+})
+
+
+const noErrorsAndHasVoyage = computed(() => {
+    return !hasError.value && !!voyage.value
+})
+
+const noErrorsAndHasVoyageAndNoProtocol = computed(() => {
+    return noErrorsAndHasVoyage.value && !viewForProtocol.value
+})
+
 </script>
 
 <template>
@@ -62,7 +81,8 @@ function fetchVoyage() {
     </section>
 
     <!-- Success -->
-    <Transition name="slide-in" mode="out-in" appear v-else class="flex flex-col gap-4">
+    <Transition name="slide-in" mode="out-in" appear v-else-if="noErrorsAndHasVoyageAndNoProtocol"
+        class="flex flex-col gap-4">
         <div class="flex flex-col justify-center gap-6 relative">
             <div class="absolute top-4 right-0 w-12 h-2 bg-primary">
             </div>
@@ -132,6 +152,9 @@ function fetchVoyage() {
 
     </Transition>
 
+
+    <!-- Wizard -->
+    <VoyageSteps v-if="beginProtocol" />
 
 
 
