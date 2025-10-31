@@ -9,7 +9,7 @@ defineProps<{
     <!-- Reserve space for the 6rem pillar + a small gap -->
     <div class="relative h-[100px] flex pl-24"> <!-- 6rem (w-24) + ~0.5rem gap -->
         <!-- Decorative shape (doesn't capture clicks) -->
-        <div class="absolute inset-y-0 left-0 w-28 h-100 bg-primary text-4xl font-space pointer-events-none select-none"
+        <div class="absolute inset-y-0 left-0 w-28 h-100 bg-primary text-4xl font-sci-fi pointer-events-none select-none"
             aria-hidden="true">
             <span class="font-cyberpunk text-8xl text-base-100">{{ stepNumber }}</span>
             <div class="bg-base-100 w-6 h-12 absolute bottom-0 right-0"></div>
@@ -18,7 +18,7 @@ defineProps<{
 
             <div class="absolute bottom-0 left-4 w-1 h-50 bg-base-100"></div>
             <div class="absolute bottom-15 left-4 w-1 h-5 rotate-270">
-                <span class="text-base-100 text-4xl font-bold font-space">Step</span>
+                <span class="text-base-100 text-4xl font-bold font-sci-fi">Step</span>
             </div>
             <div class="absolute bg-base-100 h-full w-2 bottom-0 right-1"></div>
 
