@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import fleet from "../assets/img/ships/nomad_hauler_rugged_1.png"
+import nomadHauler from "../assets/img/ships/nomad-hauler-1.png"
 import { Transition, onMounted, ref } from 'vue';
 
 const hasMounted = ref(false);
@@ -22,8 +22,7 @@ onMounted(() => {
                 </RouterLink>
             </div>
             <div class="w-full md:max-w-4xl bg-transparent">
-                <img :src="fleet" alt="fleet"
-                    class="w-full md:max-w-3xl bg-transparent " />
+                <img :src="nomadHauler" alt="Nomad Hauler ship" class="w-full md:max-w-3xl bg-transparent " />
             </div>
         </section>
     </Transition>

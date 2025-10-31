@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref, reactive, computed } from 'vue'
 import { supabase } from '../lib/supabase'
-import space_station from '../assets/img/station_1.jpg'
 import { useRouter } from 'vue-router'
+import starlingCourier from '../assets/img/ships/starling-courier-1.png'
 const loading = ref(false)
 const router = useRouter()
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -44,9 +44,9 @@ const canSubmit = computed(() => {
 
 <template>
     <form @submit.prevent="signInWithEmail()">
-        <div class="hero bg-base-200">
+        <div class="hero bg-transparent">
             <div class="hero-content flex flex-col md:flex-row items-center gap-2">
-                <img :src="space_station" alt="space station" class="rounded-lg shadow-2xl size-48">
+                <img :src="starlingCourier" alt="ship" class="size-48 bg-transparent">
                 <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl flex flex-col gap-2">
                     <div class="card-body">
                         <fieldset class="fieldset">
@@ -55,7 +55,7 @@ const canSubmit = computed(() => {
                             <label class="label">Password</label>
                             <input type="password" class="input" placeholder="Password" v-model="form.password"
                                 required />
-                            <!-- <div><a class="link link-hover">Forgot password?</a></div> -->
+
                             <button :disabled="!canSubmit" type="submit" class="btn btn-neutral mt-4">Login</button>
                         </fieldset>
                     </div>
