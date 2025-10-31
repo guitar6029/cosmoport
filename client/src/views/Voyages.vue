@@ -37,12 +37,12 @@ const handleVoyageDetails = (voyage: Voyage) => {
     <section v-else class="flex flex-col items-center gap-6">
         <Transition name="slide-in">
             <BaseModal v-show="isModalShowing" :show="isModalShowing" :title="selectedVoyage?.name"
-                :open="isModalShowing" @close="isModalShowing = false" uppercase titleClass="font-space">
+                :open="isModalShowing" @close="isModalShowing = false" uppercase titleClass="font-sci-fi">
                 <VoyageMoreDetails :selectedVoyage="selectedVoyage" />
             </BaseModal>
         </Transition>
 
-        <h1 class="font-space text-6xl font-bold">Voyages</h1>
+        <h1 class="font-sci-fi text-6xl font-bold">Voyages</h1>
         <TransitionGroup name="fade" tag="div" appear class="flex items-center justify-center flex-wrap gap-4">
             <VoyageCard v-for="(voyage, index) in voyages" :key="voyage.id" :voyage="voyage"
                 :style="{ transitionDelay: `${index * 100}ms` }" @view-voyage-details="handleVoyageDetails($event)" />
