@@ -94,13 +94,13 @@ const noErrorsAndHasVoyageAndNoProtocol = computed(() => {
             <!-- WRAPPER: make this relative so the overlay anchors correctly -->
             <div class="relative w-full max-w-7xl">
                 <!-- background div -->
-                <div class="flex flex-col items-center justify-center gap-2 rounded-tl-full rounded-tr-full rounded-bl-full rounded-br-full bg-base-200 w-full 
+                <div class="flex flex-col items-center justify-center gap-2 rounded-tl-full rounded-tr-full rounded-bl-full rounded-br-full bg-base-200 w-full
                lg:grid lg:grid-cols-2 lg:items-stretch">
 
                     <!-- left: image -->
                     <div class="w-full flex items-center justify-center">
                         <img :src="voyage?.imageUrl" :alt="`${voyage?.name} image`"
-                            class="w-full h-full object-cover rounded-none lg:rounded-tl-full lg:rounded-bl-full lg:aspect-[16/9]" />
+                            class="w-full h-full object-cover rounded-none lg:rounded-tl-full lg:rounded-bl-full lg:aspect-video" />
                     </div>
                     <div class="absolute inset-0 bg-black/40 lg:rounded-full"></div>
 
