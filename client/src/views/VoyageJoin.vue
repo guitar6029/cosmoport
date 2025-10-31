@@ -117,7 +117,7 @@ const noErrorsAndHasVoyageAndNoProtocol = computed(() => {
                     <p class="text-xl lg:text-2xl text-wrap max-w-2xl">{{ voyage?.description }}</p>
 
                     <div class="flex flex-wrap items-center justify-center gap-2">
-                        <Duration :duration="voyage?.durationMinutes ?? 0" indicator="MINUTES" abbreviate />
+
                         <Difficulty :difficulty="voyage?.difficulty ?? null" />
                         <Credits :value="voyage?.reward ?? null" />
                     </div>

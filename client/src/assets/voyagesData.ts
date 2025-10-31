@@ -23,7 +23,6 @@ export const voyagesData: Voyage[] = [
     difficulty: "Hard",
     recommendedShip: "Explorer",
     reward: 4200,
-    durationMinutes: 15,
     imageUrl: crimsonRift,
   },
   {
@@ -36,7 +35,6 @@ export const voyagesData: Voyage[] = [
     difficulty: "Moderate",
     recommendedShip: "Freighter",
     reward: 2700,
-    durationMinutes: 12,
     imageUrl: eosDrift,
   },
   {
@@ -49,7 +47,6 @@ export const voyagesData: Voyage[] = [
     difficulty: "Moderate",
     recommendedShip: "Scout",
     reward: 3000,
-    durationMinutes: 10,
     imageUrl: projectHorizon,
   },
   {
@@ -62,7 +59,6 @@ export const voyagesData: Voyage[] = [
     difficulty: "Hard",
     recommendedShip: "Fighter",
     reward: 4800,
-    durationMinutes: 15,
     imageUrl: ophirBeltConvoy,
   },
   {
@@ -75,7 +71,6 @@ export const voyagesData: Voyage[] = [
     difficulty: "Moderate",
     recommendedShip: "Explorer",
     reward: 3500,
-    durationMinutes: 13,
     imageUrl: silentMoon,
   },
   {
@@ -88,7 +83,6 @@ export const voyagesData: Voyage[] = [
     difficulty: "Easy",
     recommendedShip: "Scout",
     reward: 1900,
-    durationMinutes: 10,
     imageUrl: stellarBloom,
   },
   {
@@ -101,7 +95,6 @@ export const voyagesData: Voyage[] = [
     difficulty: "Hard",
     recommendedShip: "Explorer",
     reward: 4500,
-    durationMinutes: 14,
     imageUrl: echoesOfTitan,
   },
   {
@@ -114,7 +107,6 @@ export const voyagesData: Voyage[] = [
     difficulty: "Easy",
     recommendedShip: "Freighter",
     reward: 2200,
-    durationMinutes: 11,
     imageUrl: novaDawn,
   },
   {
@@ -127,7 +119,6 @@ export const voyagesData: Voyage[] = [
     difficulty: "Hard",
     recommendedShip: "Fighter",
     reward: 5000,
-    durationMinutes: 15,
     imageUrl: blackStarRun,
   },
   {
@@ -140,7 +131,6 @@ export const voyagesData: Voyage[] = [
     difficulty: "Easy",
     recommendedShip: "Scout",
     reward: 2000,
-    durationMinutes: 10,
     imageUrl: auroraRelay,
   },
 ];

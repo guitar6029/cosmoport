@@ -10,7 +10,6 @@ export interface Voyage {
   difficulty: "Easy" | "Moderate" | "Hard" | null;
   recommendedShip: "Scout" | "Freighter" | "Explorer" | "Fighter";
   reward: number;
-  durationMinutes: number;
   status?: VoyageStatus;
   imageUrl: string;
 }

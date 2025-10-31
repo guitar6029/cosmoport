@@ -15,12 +15,7 @@ defineProps<{
         <div class="flex flex-col gap-4">
             <p class="text-xl">{{ selectedVoyage?.description }}</p>
             <Difficulty :difficulty="selectedVoyage?.difficulty ?? null" />
-            <div class="text-xl flex items-center gap-2">
-                <UiIcon :icon="Clock" size="lg" customClass="text-primary" />
-                <span>Duration</span>
-                <span class="font-bold badge badge-xl badge-outline">{{ selectedVoyage?.durationMinutes }}
-                    minutes</span>
-            </div>
+            
             <div class="text-xl flex items-center gap-2">
                 <UiIcon :icon="Eclipse" size="lg" customClass="text-primary" />
                 <span>Origin:</span>
