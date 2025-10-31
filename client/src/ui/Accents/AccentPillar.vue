@@ -18,8 +18,8 @@ withDefaults(defineProps<{
             </span>
 
             <!-- Shapes -->
-            <div class="bg-base-100 w-6 h-12 absolute bottom-0 right-0"></div>
-            <div class="bg-base-100 w-full h-12 absolute bottom-0 left-10 rounded-tr-[10rem]"></div>
+            <!-- <div class="bg-base-100 w-6 h-12 absolute bottom-0 right-0"></div> -->
+            <div class="bg-base-100 w-1 h-12 absolute bottom-0 left-10 rounded-tr-[10rem]"></div>
             <div class="absolute top-0 left-1 w-2 h-full bg-base-100"></div>
             <div class="absolute bottom-0 left-4 w-1 h-1/2 bg-base-100"></div>
 

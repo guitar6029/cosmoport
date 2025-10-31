@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import fleet from "../assets/img/ships/Default_Same_ship_side_threequarter_view_in_flight_posture_hig_0_a02a0ab1-b926-4cf8-b42f-389c385d894d_0.png"
+import fleet from "../assets/img/ships/nomad_hauler_rugged_1.png"
 import { Transition, onMounted, ref } from 'vue';
 
 const hasMounted = ref(false);
@@ -22,7 +22,8 @@ onMounted(() => {
                 </RouterLink>
             </div>
             <div class="w-full md:max-w-4xl bg-transparent">
-                <img :src="fleet" alt="fleet" class="w-full md:max-w-3xl bg-transparent " />
+                <img :src="fleet" alt="fleet"
+                    class="w-full md:max-w-3xl bg-transparent " />
             </div>
         </section>
     </Transition>

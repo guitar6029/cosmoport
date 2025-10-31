@@ -1,9 +1,14 @@
 <script lang="ts" setup>
 import { Sun, Moon } from 'lucide-vue-next';
-import { watchEffect, ref } from 'vue';
+import { watchEffect, ref, onMounted } from 'vue';
 
 
 const theme = ref<'light' | 'abyss'>('light')
+
+//for the case of dark mode on load
+// onMounted(() => {
+//   document.documentElement.setAttribute('data-theme', 'abyss')
+// })
 
 watchEffect(() => {
     document.documentElement.setAttribute('data-theme', theme.value)

@@ -30,7 +30,7 @@ const isAuthed = computed(() => sessionUserStore.isAuthed);
                 <!-- save for later when dashboard is implemented and user auth is implemented -->
                 <!-- <RouterLink to="/dashnoard">Dashboard</RouterLink> -->
 
-                <ThemeToggler />
+                <!-- <ThemeToggler /> -->
             </div>
         </nav>
     </header>

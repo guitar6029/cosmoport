@@ -38,18 +38,19 @@ function previousStep() {
 
         <div class="flex flex-row items-center gap-2">
 
-            <AccentPillar width-accent="w-24">
+            <!-- <AccentPillar width-accent="w-24">
                 <template #label>1</template>
-                <template #side-label><span class="text-nowrap">Select Ship</span> </template>
-                <template #content>
+<template #side-label><span class="text-nowrap">Select Ship</span> </template>
+<template #content>
                     <div class="card bg-base-200 shadow-lg p-4 h-[80vh] ">
                         <h2 class="text-2xl font-bold uppercase font-space">Select Ship</h2>
                         <p class="text-lg">Begin your journey across the galaxy.</p>
                     </div>
                 </template>
-            </AccentPillar>
-            <div class="flex-1 h-full flex-wrap items-center border-2 border-primary">
-                <div v-for="ship in ships" :key="ship.id" class="w-100 h-100 flex flex-col gap-2 border-2 border-primary">
+</AccentPillar> -->
+            <div class="flex items-center flex-wrap  border-2 border-primary">
+                <div v-for="ship in ships" :key="ship.id"
+                    class="w-100 h-100 flex flex-col gap-2 border-2 border-primary">
                     <span>{{ ship.name }}</span>
                     <span>{{ ship.size }}</span>
                     <span>{{ ship.hardpoints }}</span>
