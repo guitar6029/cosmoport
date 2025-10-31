@@ -8,6 +8,7 @@ import Difficulty from '../ui/Badge/Difficulty.vue'
 import { Clock, Eclipse, DollarSign } from 'lucide-vue-next'
 import UiIcon from '../ui/UiIcon.vue'
 import VoyageSteps from '../components/voyage/VoyageSteps.vue'
+import type { Ship } from '../types/Ship'
 
 const route = useRoute()
 
@@ -34,6 +35,11 @@ watch(() => route.params.name, () => {
 function handleBeginVoyage() {
     beginProtocol.value = true
 
+}
+
+function handleVoyageShipSeletion(ship: Ship) {
+    console.log("voyage ship selection", ship)
+    //later save it to the store
 }
 
 function fetchVoyage() {
@@ -154,7 +160,7 @@ const noErrorsAndHasVoyageAndNoProtocol = computed(() => {
 
 
     <!-- Wizard -->
-    <VoyageSteps v-if="beginProtocol" />
+    <VoyageSteps v-if="beginProtocol" @ship-selected="handleVoyageShipSeletion($event)" />
 
 
 
