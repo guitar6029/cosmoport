@@ -19,7 +19,10 @@ defineEmits<{
     <div class="card card-xl card-border bg-base-100 w-96 shadow-sm hover-bg hover:bg-accent">
         <figure class="relative">
             <img :src="voyage.imageUrl" :alt="voyage.description" class="zoom-in" />
-            <Duration :duration="voyage.durationMinutes" indicator="MINUTES" abbreviate />
+            <div class="absolute bottom-2 right-2">
+                <Duration :duration="voyage.durationMinutes" indicator="MINUTES" abbreviate />
+
+            </div>
         </figure>
         <div class="card-body flex flex-col gap-2">
             <h2 class="card-title">{{ voyage.name }}</h2>
