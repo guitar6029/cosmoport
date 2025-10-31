@@ -1,4 +1,5 @@
 import type { Ship } from "../types/Ship";
+import { getShipImages } from "../utils/imageUtils";
 
 export const shipsData: Ship[] = [
   {
@@ -22,7 +23,7 @@ export const shipsData: Ship[] = [
       jumpRange: 24,
     },
     tags: ["sleek", "white-blue", "lightweight", "survey nose", "tri-fin tail"],
-    imageKey: "starling-courier",
+    images: getShipImages("starling-courier"),
   },
   {
     id: "wraith-interceptor",
@@ -50,7 +51,7 @@ export const shipsData: Ship[] = [
       "neon-violet accents",
       "forward canards",
     ],
-    imageKey: "wraith-interceptor",
+    images: getShipImages("wraith-interceptor"),
   },
   {
     id: "nomad-hauler",
@@ -73,7 +74,7 @@ export const shipsData: Ship[] = [
       jumpRange: 16,
     },
     tags: ["boxy cargo pods", "industrial-yellow", "external struts", "grimy"],
-    imageKey: "nomad-hauler",
+    images: getShipImages("nomad-hauler"),
   },
   {
     id: "aurora-pathfinder",
@@ -96,7 +97,7 @@ export const shipsData: Ship[] = [
       jumpRange: 42,
     },
     tags: ["pearlescent", "gold trim", "wide canopy", "ringed-engine nacelles"],
-    imageKey: "aurora-pathfinder",
+    images: getShipImages("aurora-pathfinder"),
   },
   {
     id: "oryx-dredger",
@@ -119,7 +120,7 @@ export const shipsData: Ship[] = [
       jumpRange: 14,
     },
     tags: ["massive drill", "armored prow", "hazard stripes", "plasma cutters"],
-    imageKey: "oryx-dredger",
+    images: getShipImages("oryx-dredger"),
   },
   {
     id: "seraph-lifeline",
@@ -142,7 +143,7 @@ export const shipsData: Ship[] = [
       jumpRange: 22,
     },
     tags: ["white-red", "med-cross livery", "clean hull", "soft lighting"],
-    imageKey: "seraph-lifeline",
+    images: getShipImages("seraph-lifeline"),
   },
   {
     id: "wayfarer-shuttle",
@@ -165,7 +166,7 @@ export const shipsData: Ship[] = [
       jumpRange: 12,
     },
     tags: ["utility", "orange-white", "short-hop", "stubby wings"],
-    imageKey: "wayfarer-shuttle",
+    images: getShipImages("wayfarer-shuttle"),
   },
   {
     id: "eclipse-veil",
@@ -193,7 +194,7 @@ export const shipsData: Ship[] = [
       "blue subsurface glow",
       "sensor baffles",
     ],
-    imageKey: "eclipse-veil",
+    images: getShipImages("eclipse-veil"),
   },
   {
     id: "leviathan-carrier",
@@ -216,7 +217,7 @@ export const shipsData: Ship[] = [
       jumpRange: 20,
     },
     tags: ["superstructure", "hangar bays", "goliath", "beacon lights"],
-    imageKey: "leviathan-carrier",
+    images: getShipImages("leviathan-carrier"),
   },
   {
     id: "tempest-vrx",
@@ -244,6 +245,6 @@ export const shipsData: Ship[] = [
       "open radiator fins",
       "afterburner cones",
     ],
-    imageKey: "tempest-vrx",
+    images: getShipImages("tempest-vrx"),
   },
 ];
