@@ -11,7 +11,7 @@ withDefaults(defineProps<{
 <template>
     <div class="relative flex pl-24">
         <!-- Pillar stretches to parent height -->
-        <div :class="['absolute inset-y-0 left-0 bg-primary text-4xl font-space pointer-events-none select-none', widthAccent]"
+        <div :class="['absolute inset-y-0 left-0 bg-primary text-4xl font-sci-fi pointer-events-none select-none', widthAccent]"
             aria-hidden="true">
             <span class="font-cyberpunk text-8xl text-base-100">
                 <slot name="label" />
@@ -24,7 +24,7 @@ withDefaults(defineProps<{
             <div class="absolute bottom-0 left-4 w-1 h-1/2 bg-base-100"></div>
 
             <div class="absolute bottom-15 left-4 w-1 h-5 rotate-270">
-                <span class="text-base-100 text-4xl font-bold font-space">
+                <span class="text-base-100 text-4xl font-bold font-sci-fi">
                     <slot name="side-label" />
                 </span>
             </div>
