@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Clock, Eclipse, DollarSign } from 'lucide-vue-next'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useVoyageExplorer } from '../store/useVoyageExplorer'
@@ -8,8 +7,9 @@ import Difficulty from '../ui/Badge/Difficulty.vue'
 import Loading from '../ui/Loading.vue'
 import type { Ship } from '../types/Ship'
 import type { Voyage } from '../types/Voyage'
-import UiIcon from '../ui/UiIcon.vue'
 import VoyageSteps from '../components/voyage/VoyageSteps.vue'
+import Duration from '../ui/Badge/Duration.vue'
+import Credits from '../ui/Badge/Credits.vue'
 
 const route = useRoute()
 const voyageExplorer = useVoyageExplorer()
@@ -90,72 +90,46 @@ const noErrorsAndHasVoyageAndNoProtocol = computed(() => {
     </section>
 
     <!-- Success -->
-    <Transition name="slide-in" mode="out-in" appear v-else-if="noErrorsAndHasVoyageAndNoProtocol"
-        class="flex flex-col gap-4">
-        <div class="flex flex-col justify-center gap-6 relative">
-            <div class="absolute top-4 right-0 w-12 h-2 bg-primary">
-            </div>
-            <Transition name="rail" appear>
-                <div class="absolute bottom-0 left-0 w-full h-12 bg-primary z-0 pointer-events-none" />
-            </Transition>
-            <Transition name="rail" appear>
-                <div class="absolute top-0 left-0 w-full h-2 bg-primary">
-                </div>
-            </Transition>
-
-            <div class="absolute bottom-4 left-0 w-4 h-24 bg-primary">
-            </div>
-
-            <h1 class="p-2 rounded-xl font-bold font-sci-fi text-4xl md:text-8xl text-primary">
-                {{ voyage?.name }}
-            </h1>
+    <Transition name="slide-in" mode="out-in" appear v-else-if="noErrorsAndHasVoyageAndNoProtocol">
+        <div class="flex flex-col items-center gap-4">
 
             <div
-                class="card shadow-2xl shadow-accent flex flex-col items-center justify-center md:flex-row md:flex-wrap gap-2 p-2">
-                <div class="flex-1 flex flex-col items-center  gap-6 p-2">
-                    <p class="text-4xl md:text-4xl text-wrap max-w-2xl text-center">{{ voyage?.description }}</p>
-                    <Difficulty :difficulty="voyage?.difficulty ?? null" />
+                class="flex flex-col items-center justify-center gap-2 relative rounded-tl-full rounded-tr-full rounded-bl-full rounded-br-full bg-base-200">
 
-                    <!-- ORIGIN -->
-                    <div class="flex text-4xl flex-row items-center gap-2">
-                        <UiIcon :icon="Eclipse" size="lg" customClass="text-primary" />
-                        <span>Origin - </span>
-                        <span class="font-bold">{{ voyage?.origin }}</span>
+                <h1
+                    class="absolute top-20 text-glow z-100 p-2 rounded-xl font-bold font-sci-fi text-4xl md:text-8xl text-primary">
+                    {{ voyage?.name }}
+                </h1>
+
+                <div class="flex flex-row items-center justify-center">
+                    <div class="max-w-2xl h-full flex items-center justify-center z-10">
+                        <img :src="voyage?.imageUrl" :alt="`${voyage?.name} image`"
+                            class="w-full h-full object-cover rounded-tl-full rounded-bl-full" />
                     </div>
 
-                    <!-- DESTINATION -->
-                    <div class="flex text-4xl flex-row items-center gap-2">
-                        <UiIcon :icon="Eclipse" size="lg" customClass="text-primary" />
-                        <span>Destination - </span>
-                        <span class="font-bold">{{ voyage?.destination }}</span>
+                    <div class="max-w-2xl">
+                        <div class="flex flex-col gap-4 justify-center">
+                            <p class=" z-40 text-xl md:text-2xl text-wrap max-w-2xl">{{ voyage?.description }}</p>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <Duration :duration="voyage?.durationMinutes ?? 0" indicator="MINUTES" abbreviate />
+                                <Difficulty :difficulty="voyage?.difficulty ?? null" />
+                                <Credits :value="voyage?.reward ?? null" />
+
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- DURATION -->
-                    <div class="text-4xl flex flex-row items-center gap-2">
-                        <UiIcon :icon="Clock" size="lg" customClass="text-primary" />
-                        <span>Duration - </span>
-                        <span class="font-bold badge badge-xl badge-outline">{{ voyage?.durationMinutes }}
-                            minutes</span>
-                    </div>
-
-                    <!-- REWARD -->
-                    <div class="text-4xl flex flex-row items-center gap-2">
-                        <UiIcon :icon="DollarSign" size="lg" customClass="text-primary" />
-                        <span>Reward - </span>
-                        <span class="font-bold badge badge-xl badge-outline">{{ voyage?.reward }}</span>
-                    </div>
-
-                    <button @click="handleBeginVoyage()"
-                        class="btn btn-secondary w-fit text-xl uppercase font-sci-fi">Launch Protocol</button>
                 </div>
 
-                <div class="flex items-center justify-center">
-                    <img :src="voyage?.imageUrl" :alt="`${voyage?.name} image`"
-                        class="w-full h-full object-cover rounded-4xl" />
-                </div>
+                <button @click="handleBeginVoyage()"
+                    class="absolute bottom-20 z-30 btn btn-secondary w-fit text-xl uppercase font-sci-fi">Launch
+                    Protocol</button>
+
+
             </div>
-
         </div>
+
 
 
 

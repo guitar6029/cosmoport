@@ -9,9 +9,9 @@ export interface Voyage {
   destination: string;
   difficulty: "Easy" | "Moderate" | "Hard" | null;
   recommendedShip: "Scout" | "Freighter" | "Explorer" | "Fighter";
-  reward: string;
+  reward: number;
   durationMinutes: number;
-  status: VoyageStatus;
+  status?: VoyageStatus;
   imageUrl: string;
 }
 

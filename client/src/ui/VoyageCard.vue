@@ -2,8 +2,7 @@
 import type { Voyage } from '../types/Voyage';
 import { Eclipse } from 'lucide-vue-next';
 import Difficulty from './Badge/Difficulty.vue';
-import UiIcon from './UiIcon.vue';
-import { Timer } from 'lucide-vue-next';
+import Duration from './Badge/Duration.vue';
 defineProps<{
     voyage: Voyage
 }>();
@@ -20,11 +19,7 @@ defineEmits<{
     <div class="card card-xl card-border bg-base-100 w-96 shadow-sm hover-bg hover:bg-accent">
         <figure class="relative">
             <img :src="voyage.imageUrl" :alt="voyage.description" class="zoom-in" />
-            <div
-                class="absolute bottom-2 right-2 border-2 border-primary rounded-xl p-2 w-fit bg-accent h-fit flex items-center gap-2">
-                <UiIcon :icon="Timer" size="lg" customClass="text-primary" />
-                <span class="font-bold text-2xl">{{ voyage.durationMinutes }}</span>
-            </div>
+            <Duration :duration="voyage.durationMinutes" indicator="MINUTES" abbreviate />
         </figure>
         <div class="card-body flex flex-col gap-2">
             <h2 class="card-title">{{ voyage.name }}</h2>

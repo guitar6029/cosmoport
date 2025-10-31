@@ -114,7 +114,7 @@ onBeforeUnmount(clearTimer)
     <!-- Confirm button -->
     <button
       v-if="showConfirm && idx === -1"
-      class="btn btn-primary"
+      class="btn btn-primary w-120 min-h-75 max-w-full uppercase text-4xl font-sci-fi"
       @click="onConfirmClick"
     >
       {{ confirmText }}
@@ -129,7 +129,7 @@ onBeforeUnmount(clearTimer)
           </h1>
         </template>
         <template v-else>
-          <h1 class="font-sci-fi uppercase text-6xl tracking-[0.3em] select-none">
+          <h1 class="font-sci-fi text-primary uppercase text-8xl tracking-[0.3em] select-none">
             {{ labels[idx] }}
           </h1>
         </template>
