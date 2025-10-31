@@ -34,5 +34,9 @@ export interface Ship {
   hardpoints: number; // weapon/utility slots
   stats: ShipStats;
   tags: string[]; // styling/theme cues for art prompts
-  imageKey?: string; // filename or CDN key you’ll generate
+  images: {
+    default: string;
+    side1: string;
+    side2: string;
+  };
 }
