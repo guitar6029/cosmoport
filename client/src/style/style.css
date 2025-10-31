@@ -1,10 +1,19 @@
 @import "tailwindcss";
 @import "./animations.css";
+@import "./textAnimations.css";
 
 @plugin "daisyui";
 
 @plugin "daisyui" {
    themes: dark --default --prefersdark, abyss;
+}
+
+@font-face {
+  font-family: "Sci-Fi";
+  src: url("../src//assets//fonts//sci-fi.ttf") format("truetype");
+  font-weight: 400; /* adjust if your file is bold, etc. */
+  font-style: normal;
+  font-display: swap; /* prevents FOIT */
 }
 
 @font-face {
@@ -35,6 +44,11 @@
   }
 }
 
+.font-sci-fi {
+  font-family: "Sci-Fi", sans-serif;
+  letter-spacing: 0.7rem;
+}
+
 .font-cyberpunk {
   font-family: "Cyberpunk", sans-serif;
   letter-spacing: 0.7rem;
@@ -48,7 +62,7 @@
 
 
 body {
-  background-image: url('./img/bg-space-1.jpg');
+  background-image: url('./img/space-2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
