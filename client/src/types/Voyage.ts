@@ -1,3 +1,6 @@
+import type { Ship } from "./Ship";
+import type { VoyageStatus } from "./VoyageStatus";
+
 export interface Voyage {
   id: number;
   name: string;
@@ -8,6 +11,13 @@ export interface Voyage {
   recommendedShip: "Scout" | "Freighter" | "Explorer" | "Fighter";
   reward: string;
   durationMinutes: number;
-  status?: "available" | "in-progress" | "completed";
+  status: VoyageStatus;
   imageUrl: string;
 }
+
+
+
+export type VoyageSetup = {
+  voyage: Voyage | null;
+  ship: Ship | null;
+};

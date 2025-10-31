@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import { computed, onMounted, ref, watch } from 'vue'
-import type { Voyage } from '../types/Voyage'
-import { voyagesData } from '../assets/voyagesData'
-import Loading from '../ui/Loading.vue'
-import Difficulty from '../ui/Badge/Difficulty.vue'
 import { Clock, Eclipse, DollarSign } from 'lucide-vue-next'
+import { computed, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useVoyageExplorer } from '../store/useVoyageExplorer'
+import { voyagesData } from '../assets/voyagesData'
+import Difficulty from '../ui/Badge/Difficulty.vue'
+import Loading from '../ui/Loading.vue'
+import type { Ship } from '../types/Ship'
+import type { Voyage } from '../types/Voyage'
 import UiIcon from '../ui/UiIcon.vue'
 import VoyageSteps from '../components/voyage/VoyageSteps.vue'
-import type { Ship } from '../types/Ship'
 
 const route = useRoute()
+const voyageExplorer = useVoyageExplorer()
 
 const isLoading = ref(true)
 const hasError = ref(false)
@@ -40,6 +42,7 @@ function handleBeginVoyage() {
 function handleVoyageShipSeletion(ship: Ship) {
     console.log("voyage ship selection", ship)
     //later save it to the store
+    voyageExplorer.setVoyage({ voyage: voyage.value, ship: ship })
 }
 
 function fetchVoyage() {
@@ -103,7 +106,7 @@ const noErrorsAndHasVoyageAndNoProtocol = computed(() => {
             <div class="absolute bottom-4 left-0 w-4 h-24 bg-primary">
             </div>
 
-            <h1 class="p-2 rounded-xl font-bold font-space text-4xl md:text-8xl text-primary">
+            <h1 class="p-2 rounded-xl font-bold font-sci-fi text-4xl md:text-8xl text-primary">
                 {{ voyage?.name }}
             </h1>
 
@@ -143,7 +146,7 @@ const noErrorsAndHasVoyageAndNoProtocol = computed(() => {
                     </div>
 
                     <button @click="handleBeginVoyage()"
-                        class="btn btn-secondary w-fit text-xl uppercase font-space">Launch Protocol</button>
+                        class="btn btn-secondary w-fit text-xl uppercase font-sci-fi">Launch Protocol</button>
                 </div>
 
                 <div class="flex items-center justify-center">
