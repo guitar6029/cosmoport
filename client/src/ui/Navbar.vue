@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { CircleUser as Account } from "lucide-vue-next"
-import ThemeToggler from './ThemeToggler.vue';
 import { RouterLink } from 'vue-router';
 import { useSessionUser } from '../store/useSessionUser';
 import { computed } from 'vue';
