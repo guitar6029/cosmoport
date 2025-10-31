@@ -30,6 +30,9 @@
   .hover-bg {
     @apply transition-colors duration-200 ease-in;
   }
+  .hover-basic {
+    @apply transition-colors duration-200 ease-in;
+  }
 }
 
 .font-cyberpunk {
@@ -50,5 +53,5 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed; /* optional — gives a nice parallax feel */
-  background-color: #000; /* fallback for dark space theme */
+  /* background-color: #000;  */
 }
