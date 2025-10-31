@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import nomadHauler from "../assets/img/ships/nomad-hauler-1.png"
 import { Transition, onMounted, ref } from 'vue';
 
 const hasMounted = ref(false);
@@ -15,15 +14,13 @@ onMounted(() => {
     <Transition name="slide-in" appear>
 
         <section v-if="hasMounted" class="hero flex flex-col md:flex-row items-center justify-center gap-6">
-            <div class="w-full md:max-w-xl flex flex-col items-center gap-12">
-                <h1 class="text-2xl md:text-5xl font-bold font-space">CostmoPort</h1>
+            <div class="w-full md:max-w-xl flex flex-col items-center justify-center gap-12">
+                <h1 class="text-4xl text-glow md:text-[14rem] font-bold font-sci-fi uppercase z-10">CostmoPort</h1>
                 <RouterLink to="/voyages"><button
-                        class="btn border-2 border-primary text-2xl md:w-fit w-full uppercase">Check Voyages</button>
+                        class="border-2 p-2 cursor-pointer rounded-xl border-primary text-6xl md:w-fit w-full uppercase font-sci-fi">Explore</button>
                 </RouterLink>
             </div>
-            <div class="w-full md:max-w-4xl bg-transparent">
-                <img :src="nomadHauler" alt="Nomad Hauler ship" class="w-full md:max-w-3xl bg-transparent " />
-            </div>
+
         </section>
     </Transition>
 </template>
