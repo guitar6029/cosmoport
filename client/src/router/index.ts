@@ -9,6 +9,7 @@ import Account from "../views/Account.vue";
 import { useSessionUser } from "../store/useSessionUser";
 import VoyageJoin from "../views/VoyageJoin.vue";
 import Outpost from "../views/Outpost.vue";
+import Journal from "@/views/Journal.vue";
 
 //routes for the app
 const routes = [
@@ -31,6 +32,11 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
+  },
+  {
+    path: "/journal",
+    name: "Journal",
+    component: Journal,
   },
   {
     path: "/about",
