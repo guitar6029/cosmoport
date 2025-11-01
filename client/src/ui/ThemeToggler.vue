@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { Sun, Moon } from 'lucide-vue-next';
-import { watchEffect, ref, onMounted } from 'vue';
+import { watchEffect, ref } from 'vue';
 
 
 const theme = ref<'light' | 'abyss'>('light')

@@ -2,7 +2,6 @@
 import type { Voyage } from '../types/Voyage';
 import { Eclipse } from 'lucide-vue-next';
 import Difficulty from './Badge/Difficulty.vue';
-import Duration from './Badge/Duration.vue';
 defineProps<{
     voyage: Voyage
 }>();

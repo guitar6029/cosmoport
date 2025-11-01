@@ -8,7 +8,6 @@ import Loading from '../ui/Loading.vue'
 import type { Ship } from '../types/Ship'
 import type { Voyage } from '../types/Voyage'
 import VoyageSteps from '../components/voyage/VoyageSteps.vue'
-import Duration from '../ui/Badge/Duration.vue'
 import Credits from '../ui/Badge/Credits.vue'
 
 const route = useRoute()

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Voyage } from '../../types/Voyage';
 import Difficulty from '../../ui/Badge/Difficulty.vue';
-import { Clock, Eclipse, DollarSign } from 'lucide-vue-next';
+import { Eclipse, DollarSign } from 'lucide-vue-next';
 import UiIcon from '../../ui/UiIcon.vue';
 
 defineProps<{
