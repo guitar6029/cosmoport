@@ -40,7 +40,7 @@ function finishDialogue() {
         <div class="flex flex-col min-h-40 justify-around gap-2">
             <!-- dialogue data -->
             <div class="flex-1 w-full  lg:w-2xl bg-black/25 p-4 rounded-tl-2xl rounded-tr-2xl">
-                <p class=" font-bold font-mono">{{ currentDialogue?.text }}</p>
+                <p class=" font-bold font-mono text-2xl">{{ currentDialogue?.text }}</p>
             </div>
             <!-- next button -->
             <div class="flex flex-col items-center justify-center gap-2">
