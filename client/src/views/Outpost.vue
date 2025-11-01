@@ -1,9 +1,15 @@
 <!-- OutpostView.vue (relevant parts) -->
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useProfile } from '../store/useProfile';
 import { introOutpost } from '../utils/dialogues/introOutpost';
 import DialogueBox from '../ui/Dialogue.vue';
+import { sceneBackground } from '../utils/scenes/sceneBg';
+
+//scene
+const currentScene = ref<keyof typeof sceneBackground>('intro_outpost');
+const currentBg = computed(() => sceneBackground[currentScene.value]);
+
 
 
 const profile = useProfile()
@@ -26,9 +32,8 @@ onMounted(() => {
 onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 </script>
 
+
+
 <template>
-    <main class="relative">
-        <!-- your outpost UI here -->
-        <DialogueBox  :dialogues="introOutpost" @finish-dialogue="finishIntro" />
-    </main>
+    <DialogueBox :dialogues="introOutpost" @finish-dialogue="finishIntro" />
 </template>
