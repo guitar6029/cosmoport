@@ -1,0 +1,145 @@
+[
+  {
+    "id": "ferrous_shard",
+    "name": "Ferrous Shard",
+    "description": "Raw metallic fragment, essential for early construction.",
+    "category": "resource",
+    "rarity": "common"
+  },
+  {
+    "id": "carbon_dust",
+    "name": "Carbon Dust",
+    "description": "Pulverized organic residue, used as fuel or synthesizer input.",
+    "category": "resource",
+    "rarity": "common"
+  },
+  {
+    "id": "silica_crystal",
+    "name": "Silica Crystal",
+    "description": "Crystalline sand, vital for glass and optics fabrication.",
+    "category": "resource",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "plasma_residue",
+    "name": "Plasma Residue",
+    "description": "Solidified ion gas, emits faint radiation.",
+    "category": "resource",
+    "rarity": "rare"
+  },
+  {
+    "id": "void_ore",
+    "name": "Void Ore",
+    "description": "Dark mineral that absorbs light, source of exotic alloys.",
+    "category": "resource",
+    "rarity": "epic"
+  },
+
+  {
+    "id": "nanofiber_weave",
+    "name": "Nanofiber Weave",
+    "description": "Flexible high-strength fabric for suits and ship interiors.",
+    "category": "component",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "quantum_coil",
+    "name": "Quantum Coil",
+    "description": "Precision-wound energy core stabilizer.",
+    "category": "component",
+    "rarity": "rare"
+  },
+  {
+    "id": "phase_regulator",
+    "name": "Phase Regulator",
+    "description": "Balances energy flow in unstable reactors.",
+    "category": "component",
+    "rarity": "rare"
+  },
+  {
+    "id": "bio_circuit",
+    "name": "Bio-Circuit",
+    "description": "Organic logic chip that reacts to neural patterns.",
+    "category": "component",
+    "rarity": "epic"
+  },
+  {
+    "id": "holo_matrix",
+    "name": "Holo-Matrix",
+    "description": "Stores 3D projections and holographic data.",
+    "category": "component",
+    "rarity": "uncommon"
+  },
+
+  {
+    "id": "auto_miner_drone",
+    "name": "Auto-Miner Drone",
+    "description": "Deployable drone that extracts nearby minerals automatically.",
+    "category": "tool",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "data_spike",
+    "name": "Data Spike",
+    "description": "Hacking spike used to override security terminals.",
+    "category": "tool",
+    "rarity": "rare"
+  },
+  {
+    "id": "nutrient_gel",
+    "name": "Nutrient Gel Pack",
+    "description": "Restores focus and stamina; mildly sweet taste.",
+    "category": "consumable",
+    "rarity": "common"
+  },
+  {
+    "id": "neural_booster",
+    "name": "Neural Booster",
+    "description": "Temporarily enhances analytical performance.",
+    "category": "consumable",
+    "rarity": "rare"
+  },
+  {
+    "id": "shield_battery",
+    "name": "Shield Battery",
+    "description": "Instantly recharges personal energy shields.",
+    "category": "consumable",
+    "rarity": "uncommon"
+  },
+
+  {
+    "id": "ancient_datacube",
+    "name": "Ancient Datacube",
+    "description": "Encrypted relic containing forgotten colony logs.",
+    "category": "artifact",
+    "rarity": "rare"
+  },
+  {
+    "id": "obsidian_relic",
+    "name": "Obsidian Relic",
+    "description": "Vibrates faintly when anomalies are near.",
+    "category": "artifact",
+    "rarity": "epic"
+  },
+  {
+    "id": "encoded_signal_log",
+    "name": "Encoded Signal Log",
+    "description": "Intermittent transmission pointing to unknown coordinates.",
+    "category": "data",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "stellar_map_fragment",
+    "name": "Stellar Map Fragment",
+    "description": "Fragmented data map showing uncharted sectors.",
+    "category": "data",
+    "rarity": "rare"
+  },
+  {
+    "id": "credits",
+    "name": "Credits",
+    "description": "Standard galactic trade currency.",
+    "category": "currency",
+    "rarity": "common"
+  }
+]
