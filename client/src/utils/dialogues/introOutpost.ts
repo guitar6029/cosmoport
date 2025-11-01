@@ -8,22 +8,22 @@ export const introOutpost = [
   },
   {
     name: "ARIS",
-    portrait: arisSprites.smile,
+    portrait: arisSprites.neutral,
     text: "I'm ARIS—your reconstruction guide. This is a concept simulation, not a full game.",
   },
   {
     name: "ARIS",
-    portrait: arisSprites.talkA,
+    portrait: arisSprites.neutral,
     text: "We'll restore the outpost one system at a time. First, we need base materials.",
   },
   {
     name: "ARIS",
-    portrait: arisSprites.concern,
+    portrait: arisSprites.neutral,
     text: "The core is idle. Without resources, nothing wakes up.",
   },
   {
     name: "ARIS",
-    portrait: arisSprites.talkB,
+    portrait: arisSprites.neutral,
     text: "See the Resources panel? Try Mining Iron. I'll route it to your inventory.",
   },
   {
@@ -33,7 +33,7 @@ export const introOutpost = [
   },
   {
     name: "ARIS",
-    portrait: arisSprites.smile,
+    portrait: arisSprites.neutral,
     text: "Once you've got a stack, we'll look at auto-miners and upgrades.",
   },
   {
