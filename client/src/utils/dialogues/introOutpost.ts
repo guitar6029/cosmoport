@@ -3,42 +3,42 @@ import { arisSprites } from "../sprites/arisSprites";
 export const introOutpost = [
   {
     name: "ARIS",
-    portrait: arisSprites.neutral,
-    text: "Boot sequence complete… Welcome to Outpost-01, Operator.",
-  },
-  {
-    name: "ARIS",
-    portrait: arisSprites.neutral,
-    text: "I'm ARIS—your reconstruction guide. This is a concept simulation, not a full game.",
-  },
-  {
-    name: "ARIS",
-    portrait: arisSprites.neutral,
-    text: "We'll restore the outpost one system at a time. First, we need base materials.",
-  },
-  {
-    name: "ARIS",
-    portrait: arisSprites.neutral,
-    text: "The core is idle. Without resources, nothing wakes up.",
-  },
-  {
-    name: "ARIS",
-    portrait: arisSprites.neutral,
-    text: "See the Resources panel? Try Mining Iron. I'll route it to your inventory.",
-  },
-  {
-    name: "ARIS",
-    portrait: arisSprites.neutral,
-    text: "Watch the HUD: Credits and totals update as you collect.",
-  },
-  {
-    name: "ARIS",
-    portrait: arisSprites.neutral,
-    text: "Once you've got a stack, we'll look at auto-miners and upgrades.",
-  },
-  {
-    name: "ARIS",
     portrait: arisSprites.glitch,
-    text: "Signal drift detected… don't worry—that's just the simulation boundaries.",
+    text: "Warning—core temperature rising! Hull integrity at 42%.",
+  },
+  {
+    name: "ARIS",
+    portrait: arisSprites.concern,
+    text: "Main thrusters offline… we’re losing altitude, Operator.",
+  },
+  {
+    name: "ARIS",
+    portrait: arisSprites.neutral,
+    text: "Scanning for emergency landing zones…",
+  },
+  {
+    name: "ARIS",
+    portrait: arisSprites.neutral,
+    text: "Nearest viable site detected—Outpost-01. It’s still active!",
+  },
+  {
+    name: "ARIS",
+    portrait: arisSprites.concern,
+    text: "Brace for impact. Diverting remaining power to stabilizers—hang on!",
+  },
+  {
+    name: "ARIS",
+    portrait: arisSprites.neutral,
+    text: "…Landing sequence complete. Systems at minimal capacity, but we’re down.",
+  },
+  {
+    name: "ARIS",
+    portrait: arisSprites.think,
+    text: "We made it to Outpost-01. I’ll start diagnostics while you catch your breath.",
+  },
+  {
+    name: "ARIS",
+    portrait: arisSprites.think,
+    text: "Engines are fried, but with some materials from the nearby mines, we can rebuild.",
   },
 ] as const;

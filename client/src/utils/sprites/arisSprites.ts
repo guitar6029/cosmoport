@@ -28,4 +28,8 @@ export const arisSprites = {
     "../../assets/img/characters/aris/aris_glitch.jpg",
     import.meta.url
   ).href,
+  think: new URL(
+    "../../assets/img/characters/aris/aris_think.jpg",
+    import.meta.url
+  )
 } as const;
