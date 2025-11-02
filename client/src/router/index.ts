@@ -8,7 +8,7 @@ import VoyagesView from "../views/Voyages.vue";
 import Account from "../views/Account.vue";
 import { useSessionUser } from "../store/useSessionUser";
 import VoyageJoin from "../views/VoyageJoin.vue";
-import Outpost from "../views/Outpost.vue";
+import Game from "../views/Game.vue";
 import Journal from "@/views/Journal.vue";
 
 //routes for the app
@@ -54,9 +54,9 @@ const routes = [
     component: VoyageJoin,
   },
   {
-    path: "/outpost",
-    name: "Outpost",
-    component: Outpost,
+    path: "/game",
+    name: "Game",
+    component: Game,
   },
   {
     path: "/account",
