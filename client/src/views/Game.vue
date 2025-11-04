@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useGame } from '@/store/useGame';
-import PixiScene from '@/components/game/PixiScene.vue';
 import { onMounted } from 'vue';
 import { introOutpost } from '../utils/dialogues/introOutpost';
 import DialogueBox from '../ui/Dialogue.vue';
@@ -25,8 +24,7 @@ onMounted(() => {
 
 <template>
     <div class="w-full h-dvh">
-        <PixiScene v-if="game.scene === 'intro' || game.scene === 'base'" :sceneKey="game.scene" />
-        <div v-else class="h-dvh flex items-center justify-center">
+        <div class="h-dvh flex items-center justify-center">
             <div class="max-w-6xl p-6 rounded-xl bg-base-200 shadow">
                 <div class="flex gap-2">
                     <DialogueBox :dialogues="introOutpost as any" @finish-dialogue="finishIntro" />
