@@ -7,6 +7,7 @@ import UiIcon from '../../ui/UiIcon.vue';
 defineProps<{
     selectedVoyage: Voyage | null
 }>();
+
 </script>
 
 <template>
@@ -15,7 +16,7 @@ defineProps<{
         <div class="flex flex-col gap-4">
             <p class="text-xl">{{ selectedVoyage?.description }}</p>
             <Difficulty :difficulty="selectedVoyage?.difficulty ?? null" />
-            
+
             <div class="text-xl flex items-center gap-2">
                 <UiIcon :icon="Eclipse" size="lg" customClass="text-primary" />
                 <span>Origin:</span>

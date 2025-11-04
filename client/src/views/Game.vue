@@ -9,6 +9,7 @@ const game = useGame();
 
 const finishIntro = () => {
     game.seenDockIntro = true;
+    game.scene = 'base'
 }
 
 onMounted(() => {
@@ -24,11 +25,11 @@ onMounted(() => {
 
 <template>
     <div class="w-full h-dvh">
-        <PixiScene v-if="game.scene === 'intro'" />
+        <PixiScene v-if="game.scene === 'intro' || game.scene === 'base'" :sceneKey="game.scene" />
         <div v-else class="h-dvh flex items-center justify-center">
             <div class="max-w-6xl p-6 rounded-xl bg-base-200 shadow">
                 <div class="flex gap-2">
-                    <DialogueBox :dialogues="introOutpost" @finish-dialogue="finishIntro()" />
+                    <DialogueBox :dialogues="introOutpost as any" @finish-dialogue="finishIntro" />
 
                 </div>
             </div>

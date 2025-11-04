@@ -5,9 +5,9 @@ import Navbar from './ui/Navbar.vue';
 
 <template>
   <div class="min-h-dvh flex flex-col gap-8 overflow-hidden">
-    <!-- <header>
+    <header>
       <Navbar />
-    </header> -->
+    </header>
     <main class="flex-1 flex flex-col items-center justify-center p-2">
       <RouterView />
     </main>
